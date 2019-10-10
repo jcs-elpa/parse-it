@@ -1,14 +1,6 @@
-;;; parse-it-csharp.el ---   -*- lexical-binding: t; -*-
+;;; parse-it-csharp.el --- Core parser for CSharp.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2019  Shen, Jen-Chieh
-;; Created date 2019-10-10 12:04:19
-
-;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
-;; Description:
-;; Keyword:
-;; Version: 0.0.1
-;; Package-Requires: ((emacs "24.3"))
-;; URL: https://github.com/jcs090218/parse-it-csharp
+;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 
 ;; This file is NOT part of GNU Emacs.
 
@@ -27,7 +19,7 @@
 
 ;;; Commentary:
 ;;
-;;
+;; Core parser for CSharp.
 ;;
 
 ;;; Code:

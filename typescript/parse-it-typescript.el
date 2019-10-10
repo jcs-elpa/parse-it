@@ -1,14 +1,6 @@
-;;; parse-it-typescript.el ---   -*- lexical-binding: t; -*-
+;;; parse-it-typescript.el --- Core parser for TypeScript.  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2019  Shen, Jen-Chieh
-;; Created date 2019-10-10 12:21:01
-
-;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
-;; Description:
-;; Keyword:
-;; Version: 0.0.1
-;; Package-Requires: ((emacs "24.3"))
-;; URL: https://github.com/jcs090218/parse-it-typescript
+;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 
 ;; This file is NOT part of GNU Emacs.
 
@@ -27,7 +19,7 @@
 
 ;;; Commentary:
 ;;
-;;
+;; Core parser for TypeScript.
 ;;
 
 ;;; Code:
