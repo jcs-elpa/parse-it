@@ -24,27 +24,28 @@
 
 ;;; Code:
 
-(require 'parse-it)
+(require 'cl-lib)
+(require 's)
 
 
 (defvar parse-it-lex--token-type
-  '(("NEWLN" . "[\n]+")
-    ("TAB" . "[\t]+")
-    ("SPC" . "[ ]+"))
+  '(("EQUAL" . "[=]+")
+    ("URL" . "http[s]*://")
+    ("NUMBER" . "\\`[0-9]+\\'")
+    ("UNKNOWN" . ""))
   "List of token identifier.")
 
-(defcustom parse-it-lex-ignore-comment t
-  "Ignore comment when tokenizing."
-  :type 'boolean
-  :group 'parse-it)
+(defconst parse-it-lex--magic-comment-beg "COMMENT_BEG"
+  "Magic string represent beginning of the comment.")
 
-(defcustom parse-it-lex-ignore-spc-tab t
-  "Ignore whitespaces/tabs when tokenizing."
-  :type 'boolean
-  :group 'parse-it)
+(defconst parse-it-lex--magic-comment-end "COMMENT_END"
+  "Magic string represent ending of the comment.")
 
-(defvar parse-it-lex--buffer-string ""
-  "Current tokenizing buffer string.")
+(defconst parse-it-lex--magic-comment "COMMENT"
+  "Magic string represent single line comment.")
+
+(defconst parse-it-lex--magic-newline "NEWLN"
+  "Magic string represent newline.")
 
 
 (defun parse-it-lex--get-string-from-file (path)
@@ -58,13 +59,52 @@
   (with-current-buffer buf-name
     (buffer-string)))
 
+(defun parse-it-lex--split-to-token-list (src-code)
+  "Split SRC-CODE to list of token readable list."
+  (split-string (s-replace-regexp "[\t]" " " (s-replace-regexp "[\n]" "\n " src-code)) " " t nil))
+
+(defun parse-it-lex--find-token-type (sec)
+  "Find out section of code's (SEC) token type."
+  (let ((tk-tp "") (token-type "") (token-regex "") (tk-index 0) (tk-break nil))
+    (while (and (< tk-index (length parse-it-lex--token-type))
+                (not tk-break))
+      (setq tk-tp (nth tk-index parse-it-lex--token-type))
+      (setq token-regex (cdr tk-tp))
+      (when (string-match-p token-regex sec)
+        (setq token-type (car tk-tp))
+        (setq tk-break t))
+      (setq tk-index (1+ tk-index)))
+    token-type))
+
 (defun parse-it-lex-tokenize-it (path)
   "Tokenize the PATH and return list of tokens."
-  (setq parse-it-lex--buffer-string
-        (if path (parse-it-lex--get-string-from-file path)
-          (parse-it-lex--get-string-from-buffer (current-buffer))))
-  (message "%s" parse-it-lex--buffer-string)
-  )
+  (let* ((src-code (if path (parse-it-lex--get-string-from-file path)
+                     (parse-it-lex--get-string-from-buffer (current-buffer))))
+         (src-sec (parse-it-lex--split-to-token-list src-code))
+         (res-lst '())
+         (mul-comment nil)
+         (in-comment nil)
+         (newline-there nil)
+         (token-type ""))
+    (dolist (sec src-sec)
+      (setq newline-there nil)
+      (when (string-match-p "[\n]" sec)
+        (setq sec (nth 0 (split-string sec "\n")))
+        (setq newline-there t))
+      (unless (string-empty-p sec)
+        (setq token-type (parse-it-lex--find-token-type sec))
+        (cond
+         ((string= token-type parse-it-lex--magic-comment-beg) (setq mul-comment t))
+         ((string= token-type parse-it-lex--magic-comment-end) (setq mul-comment nil))
+         ((string= token-type parse-it-lex--magic-comment) (setq in-comment t))
+         ((and in-comment newline-there (not mul-comment)) (setq in-comment nil))
+         (t
+          (when (and (not in-comment)
+                     (not mul-comment))
+            (setq res-lst (append res-lst (list (cons sec token-type))))
+            (when newline-there
+              (setq res-lst (append res-lst (list (cons "\n" parse-it-lex--magic-newline))))))))))
+    res-lst))
 
 
 (provide 'parse-it-lex)
