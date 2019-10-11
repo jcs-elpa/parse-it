@@ -7,7 +7,7 @@
 ;; Description: Basic Parser in Emacs Lisp.
 ;; Keyword: parse parser lex lexer ast
 ;; Version: 0.0.1
-;; Package-Requires: ((emacs "24.4"))
+;; Package-Requires: ((emacs "24.4") (cl-lib "0.6") (s "1.12.0"))
 ;; URL: https://github.com/jcs090218/parse-it
 
 ;; This file is NOT part of GNU Emacs.
@@ -32,6 +32,8 @@
 
 ;;; Code:
 
+(require 'parse-it-lex)
+
 
 (defgroup parse-it nil
   "Basic Parser in Emacs Lisp."
@@ -40,11 +42,12 @@
   :link '(url-link :tag "Repository" "https://github.com/jcs090218/parse-it"))
 
 
-(defun parse-it (lan &optional buf-name)
-  "Parse the BUF-NAME with symbol language LAN support."
+(defun parse-it (lan &optional path)
+  "Parse the PATH with symbol language LAN support."
   (cl-case lan
-    ('csharp (require 'parse-it-csharp) (parse-it-csharp buf-name))
-    ('typescript (require 'parse-it-typescript) (parse-it-typescript buf-name))
+    ('c (require 'parse-it-c) (parse-it-c path))
+    ('csharp (require 'parse-it-csharp) (parse-it-csharp path))
+    ('typescript (require 'parse-it-typescript) (parse-it-typescript path))
     (t (user-error "Language '%s' is not supported" lan))))
 
 
