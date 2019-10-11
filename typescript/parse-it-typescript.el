@@ -24,10 +24,13 @@
 
 ;;; Code:
 
+(require 'parse-it-lex)
 
-(defun parse-it-typescript ()
-  "Parse the current file TypeScript."
+
+(defun parse-it-typescript (buf-name)
+  "Parse the BUF-NAME TypeScript."
   (message "Parsing TypeScript..")
+  (parse-it-lex-tokenize-it buf-name)
   )
 
 

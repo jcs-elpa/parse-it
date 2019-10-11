@@ -25,8 +25,8 @@
 ;;; Code:
 
 
-(defun parse-it-csharp ()
-  "Parse the current file CSharp."
+(defun parse-it-csharp (buf-name)
+  "Parse the BUF-NAME CSharp."
   (message "Parsing CSharp..")
   )
 

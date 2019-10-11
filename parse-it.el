@@ -40,11 +40,11 @@
   :link '(url-link :tag "Repository" "https://github.com/jcs090218/parse-it"))
 
 
-(defun parse-it (lan)
-  "Parse the current buffer with symbol language LAN support."
+(defun parse-it (lan &optional buf-name)
+  "Parse the BUF-NAME with symbol language LAN support."
   (cl-case lan
-    ('csharp (require 'parse-it-csharp) (parse-it-csharp))
-    ('typescript (require 'parse-it-typescript) (parse-it-typescript))
+    ('csharp (require 'parse-it-csharp) (parse-it-csharp buf-name))
+    ('typescript (require 'parse-it-typescript) (parse-it-typescript buf-name))
     (t (user-error "Language '%s' is not supported" lan))))
 
 
