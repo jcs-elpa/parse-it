@@ -24,14 +24,26 @@
 
 ;;; Code:
 
-(require 'parse-it-lex)
+(require 'parse-it-c)
 
 
-(defun parse-it-typescript (buf-name)
-  "Parse the BUF-NAME TypeScript."
+(defvar parse-it-typescript--token-type
+  '(("COLON" . "[:]"))
+  "TypeScript token type.")
+
+
+(defun parse-it-typescript--make-token-type ()
+  "Make up the token type."
+  (append parse-it-c--c-type-commenting-token-type
+          parse-it-typescript--token-type
+          parse-it-lex--token-type))
+
+(defun parse-it-typescript (path)
+  "Parse the PATH TypeScript."
   (message "Parsing TypeScript..")
-  (parse-it-lex-tokenize-it buf-name)
-  )
+  (let ((parse-it-lex--token-type (parse-it-typescript--make-token-type)))
+    (message "%s" (parse-it-lex-tokenize-it path))
+    ))
 
 
 (provide 'parse-it-typescript)

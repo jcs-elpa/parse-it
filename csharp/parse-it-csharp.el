@@ -25,10 +25,23 @@
 ;;; Code:
 
 
-(defun parse-it-csharp (buf-name)
-  "Parse the BUF-NAME CSharp."
+(defvar parse-it-csharp--token-type
+  '(("COLON" . "[:]"))
+  "CSharp token type.")
+
+
+(defun parse-it-csharp--make-token-type ()
+  "Make up the token type."
+  (append parse-it-c--c-type-commenting-token-type
+          parse-it-csharp--token-type
+          parse-it-lex--token-type))
+
+(defun parse-it-csharp (path)
+  "Parse the PATH CSharp."
   (message "Parsing CSharp..")
-  )
+  (let ((parse-it-lex--token-type (parse-it-csharp--make-token-type)))
+    (message "%s" (parse-it-lex-tokenize-it path))
+    ))
 
 
 (provide 'parse-it-csharp)
