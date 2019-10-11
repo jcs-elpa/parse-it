@@ -1,7 +1,6 @@
 # ignore these directories.
 /.git
 /recipes
-/test
 parse-it-pkg.el
 
 # ignore generated files.
