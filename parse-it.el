@@ -32,6 +32,7 @@
 
 ;;; Code:
 
+(require 'parse-it-ast)
 (require 'parse-it-lex)
 
 
@@ -42,6 +43,7 @@
   :link '(url-link :tag "Repository" "https://github.com/jcs090218/parse-it"))
 
 
+;;;###autoload
 (defun parse-it (lan &optional path)
   "Parse the PATH with symbol language LAN support."
   (cl-case lan

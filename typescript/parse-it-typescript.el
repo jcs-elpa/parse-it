@@ -42,14 +42,16 @@
     ("PAREN_CLOSE" . "[)]")
     ("ARROW" . "[=][>]")
     ("EQUAL" . "[=] ")
-    ("KEYWORD" . "\\<\\(abstract\\|any\\|as\\|async\\|await\\|boolean\\|bigint\\|
-break\\|case\\|catch\\|class\\|const\\|constructor\\|continue\\|declare\\|default\\|
-delete\\|do\\|else\\|enum\\|export\\|extends\\|extern\\|false\\|finaly\\|for\\|
-function\\|from\\|get\\|goto\\|if\\|implements\\|import\\|in\\|instanceof\\|interface\\|
-keyof\\|let\\|module\\|namespace\\|never\\|new\\|null\\|number\\|object\\|of\\|
-private\\|protected\\|public\\|readonly\\|return\\|set\\|static\\|string\\|super\\|
-switch\\|this\\|throw\\|true\\|try\\|type\\|typeof\\|var\\|void\\|while\\)"))
+    ("KEYWORD" . "\\<\\(abstract\\|any\\|as\\|async\\|await\\|boolean\\|bigint\\|break\\|case\\|catch\\|class\\|const\\|constructor\\|continue\\|declare\\|default\\|delete\\|do\\|else\\|enum\\|export\\|extends\\|extern\\|false\\|finaly\\|for\\|function\\|from\\|get\\|goto\\|if\\|implements\\|import\\|in\\|instanceof\\|interface\\|keyof\\|let\\|module\\|namespace\\|never\\|new\\|null\\|number\\|object\\|of\\|private\\|protected\\|public\\|readonly\\|return\\|set\\|static\\|string\\|super\\|switch\\|this\\|throw\\|true\\|try\\|type\\|typeof\\|var\\|void\\|while\\)"))
   "TypeScript token type.")
+
+(defconst parse-it-typescript--into-level-symbols
+  '("{" "[" "(")
+  "All symbols that goes into one nested level.")
+
+(defconst parse-it-typescript--back-level-symbols
+  '("}" "]" ")")
+  "All symbols that goes back up one nested level.")
 
 
 (defun parse-it-typescript--make-token-type ()
@@ -62,8 +64,9 @@ switch\\|this\\|throw\\|true\\|try\\|type\\|typeof\\|var\\|void\\|while\\)"))
   "Parse the PATH TypeScript."
   (let* ((parse-it-lex--token-type (parse-it-typescript--make-token-type))
          (token-list (parse-it-lex-tokenize-it path)))
-    (message "%s" token-list)
-    ))
+    (parse-it-ast-build token-list
+                        parse-it-typescript--into-level-symbols
+                        parse-it-typescript--back-level-symbols)))
 
 
 (provide 'parse-it-typescript)

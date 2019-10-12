@@ -93,21 +93,37 @@
   "Append ELM to LST."
   (append lst (list elm)))
 
+(defun parse-it-lex--form-node (val type ln pos)
+  "Form a node with TYPE, VAL, LN and POS."
+  (list :value val :type type :lineno ln :pos pos))
+
 (defun parse-it-lex-tokenize-it (path)
   "Tokenize the PATH and return list of tokens."
   (let* ((src-code (if path (parse-it-lex--get-string-from-file path)
                      (parse-it-lex--get-string-from-buffer (current-buffer))))
          (src-sec (parse-it-lex--split-to-token-list src-code))
          (res-lst '())
-         (mul-comment nil)
-         (in-comment nil)
-         (newline-there nil)
-         (token-type ""))
+         (mul-comment nil) (in-comment nil) (newline-there nil)
+         (src-ln (split-string src-code "\n"))
+         (cur-src-ln (nth 0 src-ln))
+         (matched-pos 0)
+         (ln 0) (pos 0) (token-type ""))
     (dolist (sec src-sec)
-      (setq newline-there nil)
-      (when (string-match-p "[\n]" sec)
-        (setq sec (nth 0 (split-string sec "\n")))
-        (setq newline-there t))
+      (if (string-match-p "[\n]" sec)
+          (progn
+            (setq pos (+ pos (length sec)))
+            (setq sec (nth 0 (split-string sec "\n")))
+            ;; NOTE: Do something after seeing newline.
+            (progn
+              (setq ln (1+ ln))
+              (setq cur-src-ln (nth ln src-ln))
+              (setq matched-pos 0)
+              (setq newline-there t)))
+        (setq newline-there nil)
+        (setq pos (- pos matched-pos))
+        (setq matched-pos (string-match-p (regexp-quote sec) cur-src-ln matched-pos))
+        (when matched-pos
+          (setq pos (+ pos matched-pos))))
       (when (or (not (string-empty-p sec))
                 newline-there)
         (setq token-type (parse-it-lex--find-token-type sec))
@@ -119,10 +135,15 @@
          (t
           (when (and (not in-comment) (not mul-comment))
             (unless (string-empty-p sec)
-              (setq res-lst (parse-it-lex--add-to-list res-lst (cons sec token-type))))
-            (when (and newline-there
-                       (not parse-it-lex--ignore-newline))
-              (setq res-lst (parse-it-lex--add-to-list res-lst (cons "\n" parse-it-lex--magic-newline)))))))))
+              (setq res-lst
+                    (parse-it-lex--add-to-list
+                     res-lst
+                     (parse-it-lex--form-node sec token-type (1+ ln) pos))))
+            (when (and newline-there (not parse-it-lex--ignore-newline))
+              (setq res-lst
+                    (parse-it-lex--add-to-list
+                     res-lst
+                     (parse-it-lex--form-node "\n" parse-it-lex--magic-newline ln pos)))))))))
     res-lst))
 
 
