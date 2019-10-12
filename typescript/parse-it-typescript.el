@@ -27,7 +27,7 @@
 (require 'parse-it-c)
 
 
-(defvar parse-it-typescript--token-type
+(defconst parse-it-typescript--token-type
   '(("COLON" . "[:]"))
   "TypeScript token type.")
 

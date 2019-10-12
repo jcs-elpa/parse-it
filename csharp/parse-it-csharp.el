@@ -25,7 +25,7 @@
 ;;; Code:
 
 
-(defvar parse-it-csharp--token-type
+(defconst parse-it-csharp--token-type
   '(("COLON" . "[:]"))
   "CSharp token type.")
 
