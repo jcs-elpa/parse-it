@@ -23,7 +23,8 @@
 ;; --------------------------------------------------------------------------
 ;; Start testing..
 
-(let* ((load-path load-path)
+(let* ((lan 'typescript)
+       (load-path load-path)
        (project-path (expand-file-name "../"))
        (dirs (f-directories project-path))
        (final-list (append (list project-path) dirs)))
@@ -31,14 +32,8 @@
   (parse-it-test--all-dirs final-list)  ; Load all core files.
   (message "[INFO] Done loading ::\n")
 
-  (setq parse-it-lex--token-type
-        '(("COMMENT" . "[/][/]")
-          ("COMMENT_BEG" . "/[*]+")
-          ("COMMENT_END" . "[*]/")
-          ("EQUAL" . "[=]+")
-          ("URL" . "http[s]*://")
-          ("NUMBER" . "\\`[0-9]+\\'")
-          ("UNKNOWN" . "")))
+  (setq parse-it-lex--ignore-newline nil)
 
   (require 'parse-it)
-  (parse-it 'typescript "c:/KeyCode.ts"))
+  (message "Parsing %s.." lan)
+  (parse-it lan "c:/cool.ts"))
