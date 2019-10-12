@@ -29,6 +29,7 @@
        (final-list (append (list project-path) dirs)))
   (dolist (path final-list) (add-to-list 'load-path path))
   (parse-it-test--all-dirs final-list)  ; Load all core files.
+  (message "[INFO] Done loading ::\n")
 
   (setq parse-it-lex--token-type
         '(("COMMENT" . "[/][/]")
