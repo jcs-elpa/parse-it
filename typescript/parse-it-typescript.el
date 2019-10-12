@@ -29,13 +29,17 @@
 
 (defconst parse-it-typescript--token-type
   '(("COLON" . "[:]")
+    ("SEMICOLON" . "[;]")
     ("COMMA" . "[,]")
-    ("BRACKET_OPEN" . "[{]")
-    ("BRACKET_CLOSE" . "[}]")
+    ("DOT" . "[.]")
+    ("QT_S" . "[']")
+    ("QT_D" . "[\"]")
+    ("BRKT_CR_OPN" . "[{]")
+    ("BRKT_CR_CLS" . "[}]")
+    ("BRKT_SQ_OPN" . "[\\[]")
+    ("BRKT_SQ_CLS" . "[]]")
     ("PAREN_OPEN" . "[(]")
     ("PAREN_CLOSE" . "[)]")
-    ("SEMI_COLON" . "[;]")
-    ("DOT" . "[.]")
     ("ARROW" . "[=][>]")
     ("EQUAL" . "[=] ")
     ("KEYWORD" . "\\<\\(abstract\\|any\\|as\\|async\\|await\\|boolean\\|bigint\\|
@@ -56,8 +60,9 @@ switch\\|this\\|throw\\|true\\|try\\|type\\|typeof\\|var\\|void\\|while\\)"))
 
 (defun parse-it-typescript (path)
   "Parse the PATH TypeScript."
-  (let ((parse-it-lex--token-type (parse-it-typescript--make-token-type)))
-    (message "%s" (parse-it-lex-tokenize-it path))
+  (let* ((parse-it-lex--token-type (parse-it-typescript--make-token-type))
+         (token-list (parse-it-lex-tokenize-it path)))
+    (message "%s" token-list)
     ))
 
 

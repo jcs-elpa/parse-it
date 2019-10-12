@@ -24,6 +24,8 @@
 
 ;;; Code:
 
+(require 'parse-it-c)
+
 
 (defconst parse-it-csharp--token-type
   '(("COLON" . "[:]"))
@@ -38,8 +40,9 @@
 
 (defun parse-it-csharp (path)
   "Parse the PATH CSharp."
-  (let ((parse-it-lex--token-type (parse-it-csharp--make-token-type)))
-    (message "%s" (parse-it-lex-tokenize-it path))
+  (let* ((parse-it-lex--token-type (parse-it-typescript--make-token-type))
+         (token-list (parse-it-lex-tokenize-it path)))
+    (message "%s" token-list)
     ))
 
 

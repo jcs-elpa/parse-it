@@ -24,6 +24,10 @@
 
 ;;; Code:
 
+(defconst parse-it-typescript--token-type
+  '(("ASTERISK" . "[*]")
+    ("AMPERSAND" . "[&]"))
+  "C token type.")
 
 (defconst parse-it-c--c-type-commenting-token-type
   '(("COMMENT" . "[/][/]")
@@ -35,12 +39,14 @@
 (defun parse-it-c--make-token-type ()
   "Make up the token type."
   (append parse-it-c--c-type-commenting-token-type
+          parse-it-typescript--token-type
           parse-it-lex--token-type))
 
 (defun parse-it-c (path)
   "Parse the PATH in C programming language."
-  (let ((parse-it-lex--token-type (parse-it-c--make-token-type)))
-    (message "%s" (parse-it-lex-tokenize-it path))
+  (let* ((parse-it-lex--token-type (parse-it-typescript--make-token-type))
+         (token-list (parse-it-lex-tokenize-it path)))
+    (message "%s" token-list)
     ))
 
 
