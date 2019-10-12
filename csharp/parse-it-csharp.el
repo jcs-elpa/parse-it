@@ -38,7 +38,6 @@
 
 (defun parse-it-csharp (path)
   "Parse the PATH CSharp."
-  (message "Parsing CSharp..")
   (let ((parse-it-lex--token-type (parse-it-csharp--make-token-type)))
     (message "%s" (parse-it-lex-tokenize-it path))
     ))

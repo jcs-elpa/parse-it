@@ -39,7 +39,6 @@
 
 (defun parse-it-c (path)
   "Parse the PATH in C programming language."
-  (message "Parsing C..")
   (let ((parse-it-lex--token-type (parse-it-c--make-token-type)))
     (message "%s" (parse-it-lex-tokenize-it path))
     ))

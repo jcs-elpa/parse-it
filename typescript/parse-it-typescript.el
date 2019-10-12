@@ -28,7 +28,23 @@
 
 
 (defconst parse-it-typescript--token-type
-  '(("COLON" . "[:]"))
+  '(("COLON" . "[:]")
+    ("COMMA" . "[,]")
+    ("BRACKET_OPEN" . "[{]")
+    ("BRACKET_CLOSE" . "[}]")
+    ("PAREN_OPEN" . "[(]")
+    ("PAREN_CLOSE" . "[)]")
+    ("SEMI_COLON" . "[;]")
+    ("DOT" . "[.]")
+    ("ARROW" . "[=][>]")
+    ("EQUAL" . "[=] ")
+    ("KEYWORD" . "\\<\\(abstract\\|any\\|as\\|async\\|await\\|boolean\\|bigint\\|
+break\\|case\\|catch\\|class\\|const\\|constructor\\|continue\\|declare\\|default\\|
+delete\\|do\\|else\\|enum\\|export\\|extends\\|extern\\|false\\|finaly\\|for\\|
+function\\|from\\|get\\|goto\\|if\\|implements\\|import\\|in\\|instanceof\\|interface\\|
+keyof\\|let\\|module\\|namespace\\|never\\|new\\|null\\|number\\|object\\|of\\|
+private\\|protected\\|public\\|readonly\\|return\\|set\\|static\\|string\\|super\\|
+switch\\|this\\|throw\\|true\\|try\\|type\\|typeof\\|var\\|void\\|while\\)"))
   "TypeScript token type.")
 
 
@@ -40,7 +56,6 @@
 
 (defun parse-it-typescript (path)
   "Parse the PATH TypeScript."
-  (message "Parsing TypeScript..")
   (let ((parse-it-lex--token-type (parse-it-typescript--make-token-type)))
     (message "%s" (parse-it-lex-tokenize-it path))
     ))
