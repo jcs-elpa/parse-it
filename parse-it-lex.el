@@ -119,6 +119,7 @@
               (setq cur-src-ln (nth ln src-ln))
               (setq matched-pos 0)
               (setq newline-there t)))
+        (when newline-there (setq pos (1+ pos)))  ; Rotate add 1.
         (setq newline-there nil)
         (setq pos (- pos matched-pos))
         (setq matched-pos (string-match-p (regexp-quote sec) cur-src-ln matched-pos))
