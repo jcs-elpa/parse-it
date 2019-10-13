@@ -5,7 +5,7 @@
 # parse-it
 > Basic Parser in Emacs Lisp.
 
-For most of the major mode that needed a parser to act correctly.
+For most of the `major-mode` that needed a parser to act correctly.
 
 
 ## Contribution
