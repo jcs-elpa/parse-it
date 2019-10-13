@@ -106,25 +106,27 @@
          (mul-comment nil) (in-comment nil) (newline-there nil)
          (src-ln (split-string src-code "\n"))
          (cur-src-ln (nth 0 src-ln))
-         (matched-pos 0)
-         (ln 0) (pos 0) (token-type ""))
+         (matched-pos 0) (matched-off 0) (matched-len 0)
+         (ln 0) (pos 1) (token-type ""))
     (dolist (sec src-sec)
       (if (string-match-p "[\n]" sec)
           (progn
-            (setq pos (+ pos (length sec)))
             (setq sec (nth 0 (split-string sec "\n")))
             ;; NOTE: Do something after seeing newline.
             (progn
+              (setq pos (+ pos (length sec) matched-len))
               (setq ln (1+ ln))
               (setq cur-src-ln (nth ln src-ln))
               (setq matched-pos 0)
+              (setq matched-off 0)
               (setq newline-there t)))
-        (when newline-there (setq pos (1+ pos)))  ; Rotate add 1.
+        (when newline-there (setq pos (1+ pos)))  ; To the beginning of the line.
         (setq newline-there nil)
         (setq pos (- pos matched-pos))
-        (setq matched-pos (string-match-p (regexp-quote sec) cur-src-ln matched-pos))
-        (when matched-pos
-          (setq pos (+ pos matched-pos))))
+        (setq matched-pos (string-match-p (regexp-quote sec) cur-src-ln matched-off))
+        (setq matched-len (length sec))
+        (setq matched-off (+ matched-pos matched-len))
+        (when matched-pos (setq pos (+ pos matched-pos))))
       (when (or (not (string-empty-p sec))
                 newline-there)
         (setq token-type (parse-it-lex--find-token-type sec))
