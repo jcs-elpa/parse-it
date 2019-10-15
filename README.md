@@ -10,7 +10,7 @@ For most of the `major-mode` that needed a parser to act correctly.
 
 ## Supported Langauges
 
-* CSharp
+* C#
 * TypeScript
 
 
