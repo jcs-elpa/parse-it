@@ -29,9 +29,11 @@
 
 
 (defvar parse-it-lex--token-type
-  '(("URL" . "http[s]*://")
-    ("NUMBER" . "\\`[0-9]+\\'")
-    ("UNKNOWN" . ""))
+  (list
+   ("URL" . "http[s]*://")
+   ("NUMBER" . "\\`[0-9]+\\'")
+   ("NEWLN" . "[\n]+")
+   ("UNKNOWN" . ""))
   "List of token identifier.")
 
 (defconst parse-it-lex--magic-comment-beg "COMMENT_BEG"
