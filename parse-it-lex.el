@@ -29,11 +29,9 @@
 
 
 (defvar parse-it-lex--token-type
-  (list
-   ("URL" . "http[s]*://")
-   ("NUMBER" . "\\`[0-9]+\\'")
-   ("NEWLN" . "[\n]+")
-   ("UNKNOWN" . ""))
+  '(("URL" . "http[s]*://")
+    ("NUMBER" . "\\`[0-9]+\\'")
+    ("UNKNOWN" . ""))
   "List of token identifier.")
 
 (defconst parse-it-lex--magic-comment-beg "COMMENT_BEG"
@@ -66,7 +64,7 @@
 (defun parse-it-lex--split-to-token-list (src-code)
   "Split SRC-CODE to list of token readable list."
   (let ((ana-src src-code) (token-regex ""))
-    (setq ana-src (s-replace-regexp "[\n]" "\n " ana-src))
+    (setq ana-src (s-replace-regexp "[\n]" " \n " ana-src))
     (setq ana-src (s-replace-regexp "[\t]" " " ana-src))
     (dolist (token-type parse-it-lex--token-type)
       (setq token-regex (cdr token-type))
@@ -111,6 +109,7 @@
          (matched-pos 0) (matched-off 0) (matched-len 0)
          (ln 0) (pos 1) (token-type ""))
     (dolist (sec src-sec)
+      (when newline-there (setq pos (1+ pos)))  ; To the beginning of the line.
       (if (string-match-p "[\n]" sec)
           (progn
             (setq sec (nth 0 (split-string sec "\n")))
@@ -121,8 +120,8 @@
               (setq cur-src-ln (nth ln src-ln))
               (setq matched-pos 0)
               (setq matched-off 0)
+              (setq matched-len 0)
               (setq newline-there t)))
-        (when newline-there (setq pos (1+ pos)))  ; To the beginning of the line.
         (setq newline-there nil)
         (setq pos (- pos matched-pos))
         (setq matched-pos (string-match-p (regexp-quote sec) cur-src-ln matched-off))
