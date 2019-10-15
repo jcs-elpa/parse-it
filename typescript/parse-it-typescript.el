@@ -38,19 +38,19 @@
     ("BRKT_CR_CLS" . "[}]")
     ("BRKT_SQ_OPN" . "[\\[]")
     ("BRKT_SQ_CLS" . "[]]")
-    ("PAREN_OPEN" . "[(]")
-    ("PAREN_CLOSE" . "[)]")
+    ("PAREN_OPN" . "[(]")
+    ("PAREN_CLS" . "[)]")
     ("ARROW" . "[=][>]")
     ("EQUAL" . "[=] ")
     ("KEYWORD" . "\\<\\(abstract\\|any\\|as\\|async\\|await\\|boolean\\|bigint\\|break\\|case\\|catch\\|class\\|const\\|constructor\\|continue\\|declare\\|default\\|delete\\|do\\|else\\|enum\\|export\\|extends\\|extern\\|false\\|finaly\\|for\\|function\\|from\\|get\\|goto\\|if\\|implements\\|import\\|in\\|instanceof\\|interface\\|keyof\\|let\\|module\\|namespace\\|never\\|new\\|null\\|number\\|object\\|of\\|private\\|protected\\|public\\|readonly\\|return\\|set\\|static\\|string\\|super\\|switch\\|this\\|throw\\|true\\|try\\|type\\|typeof\\|var\\|void\\|while\\)"))
   "TypeScript token type.")
 
 (defconst parse-it-typescript--into-level-symbols
-  '("{" "[" "(")
+  '("BRKT_CR_OPN" "BRKT_SQ_OPN" "PAREN_OPN")
   "All symbols that goes into one nested level.")
 
 (defconst parse-it-typescript--back-level-symbols
-  '("}" "]" ")")
+  '("BRKT_CR_CLS" "BRKT_SQ_CLS" "PAREN_CLS")
   "All symbols that goes back up one nested level.")
 
 
