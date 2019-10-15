@@ -8,6 +8,12 @@
 For most of the `major-mode` that needed a parser to act correctly.
 
 
+## Supported Langauges
+
+* CSharp
+* TypeScript
+
+
 ## Contribution
 
 If you would like to contribute to this project, you may either 
