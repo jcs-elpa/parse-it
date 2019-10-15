@@ -27,12 +27,25 @@
 (require 'parse-it-lex)
 
 
+(defconst parse-it-ast-magic-root "ROOT"
+  "Magic string represent the root of the tree.")
+
+
+(defun parse-it-ast--form-root-ast ()
+  "Create the root of AST, basically the container of the source file."
+  (list (cons :node-type parse-it-ast-magic-root) (cons :position 1) (cons :children :none)))
+
 (defun parse-it-ast-build (token-list in-ss bk-ss)
   "Build an AST by using TOKEN-LIST.
-IN-SS are list of symbols that recognize"
-  (message "%s" token-list)
-
-  )
+IN-SS are list of symbols that recognized as into level.
+BK-SS are list of symbols that recognized as back level."
+  (message "%s\n" token-list)
+  (let ((ast-tree (parse-it-ast--form-root-ast)))
+    (message "%s" ast-tree)
+    (dolist (token token-list)
+      ;; TODO: ..
+      )
+    ast-tree))
 
 
 (provide 'parse-it-ast)
