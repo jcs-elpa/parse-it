@@ -93,9 +93,9 @@
   "Append ELM to LST."
   (append lst (list elm)))
 
-(defun parse-it-lex--form-node (val type pos)
+(defun parse-it-lex--form-node (val type ln pos)
   "Form a node with TYPE, VAL, LN and POS."
-  (list :value val :type type :pos pos))
+  (list :value val :type type :lineno ln :pos pos))
 
 (defun parse-it-lex-tokenize-it (path)
   "Tokenize the PATH and return list of tokens."
@@ -142,12 +142,12 @@
               (setq res-lst
                     (parse-it-lex--add-to-list
                      res-lst
-                     (parse-it-lex--form-node sec token-type pos))))
+                     (parse-it-lex--form-node sec token-type (1+ ln) pos))))
             (when (and newline-there (not parse-it-lex--ignore-newline))
               (setq res-lst
                     (parse-it-lex--add-to-list
                      res-lst
-                     (parse-it-lex--form-node "\n" parse-it-lex--magic-newline pos)))))))))
+                     (parse-it-lex--form-node "\n" parse-it-lex--magic-newline ln pos)))))))))
     res-lst))
 
 
