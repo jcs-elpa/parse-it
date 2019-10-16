@@ -31,20 +31,25 @@
   "Magic string represent the root of the tree.")
 
 
+(defun parse-it-ast--form-node (type pos child)
+  "Form a node for AST."
+  (list (cons :node-type type) (cons :position pos) (cons :children child)))
+
 (defun parse-it-ast--form-root-ast ()
   "Create the root of AST, basically the container of the source file."
-  (list (cons :node-type parse-it-ast-magic-root) (cons :position 1) (cons :children :none)))
+  (parse-it-ast--form-node parse-it-ast-magic-root 1 :none))
 
 (defun parse-it-ast-build (token-list in-ss bk-ss)
   "Build an AST by using TOKEN-LIST.
 IN-SS are list of symbols that recognized as into level.
 BK-SS are list of symbols that recognized as back level."
   (message "%s\n" token-list)
-  (let ((ast-tree (parse-it-ast--form-root-ast)))
-    (message "%s" ast-tree)
+  (let ((ast-tree (parse-it-ast--form-root-ast))
+        (token-type nil) (token-val nil) (token-pos nil))
     (dolist (token token-list)
-      ;; TODO: ..
+      (setq token-type (plist-get token :type))
       )
+    (message "%s" ast-tree)
     ast-tree))
 
 
