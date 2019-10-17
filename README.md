@@ -13,6 +13,7 @@ target programming language.
 ## Supported Langauges
 
 * C# - `csharp`
+* Java - `java`
 * TypeScript - `typescript`
 
 ## Try it yourself!
