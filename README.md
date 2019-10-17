@@ -5,20 +5,31 @@
 # parse-it
 > Basic Parser in Emacs Lisp.
 
-For most of the `major-mode` that needed a parser to act correctly. This is 
-between RegExp base parser. The goal of this project is to generate AST for 
+For most of the `major-mode` that needed a parser to act correctly. This is
+between RegExp base parser. The goal of this project is to generate AST for
 target programming language.
 
 
 ## Supported Langauges
 
-* C#
-* TypeScript
+* C# - `csharp`
+* TypeScript - `typescript`
+
+## Try it yourself!
+
+You can simply test with any script like the code under.
+
+```el
+(require 'parse-it)
+(parse-it-util--print-ast-tree (parse-it 'typescript "path/to/file.ts"))
+```
+
+All tokens are listed under programming language's file itself.
 
 
 ## Contribution
 
-If you would like to contribute to this project, you may either 
-clone and make pull requests to this repository. Or you can 
-clone the project and establish your own branch of this tool. 
+If you would like to contribute to this project, you may either
+clone and make pull requests to this repository. Or you can
+clone the project and establish your own branch of this tool.
 Any methods are welcome!
