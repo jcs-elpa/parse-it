@@ -19,13 +19,12 @@
 
 ;;; Commentary:
 ;;
-;; Basic lexical analysis
+;; Basic lexical analysis.
 ;;
 
 ;;; Code:
 
-(require 'cl-lib)
-(require 's)
+(require 'parse-it-util)
 
 
 (defvar parse-it-lex--token-type
@@ -49,17 +48,6 @@
 (defvar parse-it-lex--ignore-newline t
   "Ignore newline when tokenizing.")
 
-
-(defun parse-it-lex--get-string-from-file (path)
-  "Return PATH file content."
-  (with-temp-buffer
-    (insert-file-contents path)
-    (buffer-string)))
-
-(defun parse-it-lex--get-string-from-buffer (buf-name)
-  "Return BUF-NAME file content."
-  (with-current-buffer buf-name
-    (buffer-string)))
 
 (defun parse-it-lex--split-to-token-list (src-code)
   "Split SRC-CODE to list of token readable list."
@@ -89,18 +77,14 @@
       (setq tk-index (1+ tk-index)))
     token-type))
 
-(defun parse-it-lex--add-to-list (lst elm)
-  "Append ELM to LST."
-  (append lst (list elm)))
-
 (defun parse-it-lex--form-node (val type ln pos)
   "Form a node with TYPE, VAL, LN and POS."
   (list :value val :type type :lineno ln :pos pos))
 
 (defun parse-it-lex-tokenize-it (path)
   "Tokenize the PATH and return list of tokens."
-  (let* ((src-code (if path (parse-it-lex--get-string-from-file path)
-                     (parse-it-lex--get-string-from-buffer (current-buffer))))
+  (let* ((src-code (if path (parse-it-util--get-string-from-file path)
+                     (parse-it-util--get-string-from-buffer (current-buffer))))
          (src-sec (parse-it-lex--split-to-token-list src-code))
          (res-lst '())
          (mul-comment nil) (in-comment nil) (newline-there nil)
@@ -140,12 +124,12 @@
           (when (and (not in-comment) (not mul-comment))
             (unless (string-empty-p sec)
               (setq res-lst
-                    (parse-it-lex--add-to-list
+                    (parse-it-util--add-to-list
                      res-lst
                      (parse-it-lex--form-node sec token-type (1+ ln) pos))))
             (when (and newline-there (not parse-it-lex--ignore-newline))
               (setq res-lst
-                    (parse-it-lex--add-to-list
+                    (parse-it-util--add-to-list
                      res-lst
                      (parse-it-lex--form-node "\n" parse-it-lex--magic-newline ln pos)))))))))
     res-lst))

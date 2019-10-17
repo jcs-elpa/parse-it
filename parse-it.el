@@ -32,6 +32,10 @@
 
 ;;; Code:
 
+(require 'cl-lib)
+(require 's)
+
+(require 'parse-it-util)
 (require 'parse-it-ast)
 (require 'parse-it-lex)
 

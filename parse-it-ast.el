@@ -24,6 +24,7 @@
 
 ;;; Code:
 
+(require 'parse-it-util)
 (require 'parse-it-lex)
 
 
@@ -40,24 +41,41 @@
   "Create the root of AST, basically the container of the source file."
   (parse-it-ast--form-node parse-it-ast-magic-root "" 1 '()))
 
+(defun parse-it-ast--add-node (parent-node new-node)
+  "Add NEW-NODE to PARENT-NODE."
+  (let* ((plist-children (nth 3 parent-node))
+         (children-list (if (cdr plist-children) (cdr plist-children) '())))
+    (setq children-list (parse-it-util--add-to-list children-list new-node))
+    (setcdr plist-children children-list)
+    plist-children))
+
 (defun parse-it-ast-build (token-list in-ss bk-ss)
   "Build an AST by using TOKEN-LIST.
 IN-SS are list of symbols that recognized as into level.
 BK-SS are list of symbols that recognized as back level."
-  (message "%s\n" token-list)
   (let* ((ast-tree (parse-it-ast--form-root-ast))
-         (parent-node (nth 3 ast-tree))
+         (parent-node ast-tree)
+         (parent-node-stack '())
          (token-type nil) (token-val nil) (token-pos nil))
     (dolist (token token-list)
       (setq token-type (plist-get token :type))
       (setq token-val (plist-get token :value))
       (setq token-pos (plist-get token :pos))
-      (let ((parent-children (cdr parent-node)))
-        (push (parse-it-ast--form-node token-type token-val token-pos) parent-children)
-        (setcdr parent-node parent-children)
-        )
-      )
-    (message "%s" ast-tree)
+      (let* ((into-lvl (parse-it-util--is-contain-list-string in-ss token-type))
+             (back-lvl (parse-it-util--is-contain-list-string bk-ss token-type))
+             (new-node (parse-it-ast--form-node token-type token-val token-pos)))
+        (cond (into-lvl  ; Push stack.
+               (parse-it-ast--add-node parent-node new-node)
+               (push parent-node parent-node-stack)
+               (setq parent-node new-node)
+               )
+              (back-lvl  ; Pop stack.
+               (setq parent-node (nth 0 parent-node-stack))
+               (setq parent-node-stack (parse-it-util--remove-nth-element 0 parent-node-stack))
+               (parse-it-ast--add-node parent-node new-node)
+               )
+              (t
+               (parse-it-ast--add-node parent-node new-node)))))
     ast-tree))
 
 
