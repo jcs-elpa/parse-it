@@ -7,7 +7,7 @@
 ;; Description: Basic Parser in Emacs Lisp.
 ;; Keyword: parse parser lex lexer ast
 ;; Version: 0.0.1
-;; Package-Requires: ((emacs "24.4") (cl-lib "0.6") (s "1.12.0"))
+;; Package-Requires: ((emacs "25.1") (cl-lib "0.6") (s "1.12.0"))
 ;; URL: https://github.com/jcs090218/parse-it
 
 ;; This file is NOT part of GNU Emacs.
@@ -33,6 +33,7 @@
 ;;; Code:
 
 (require 'cl-lib)
+(require 'rect)
 (require 's)
 
 (require 'parse-it-util)
@@ -50,10 +51,13 @@
 ;;;###autoload
 (defun parse-it (lan &optional path)
   "Parse the PATH with symbol language LAN support."
+  (require (intern (format "parse-it-%s" (symbol-name lan))))
   (cl-case lan
-    ('c (require 'parse-it-c) (parse-it-c path))
-    ('csharp (require 'parse-it-csharp) (parse-it-csharp path))
-    ('typescript (require 'parse-it-typescript) (parse-it-typescript path))
+    ('c (parse-it-c path))
+    ('csharp (parse-it-csharp path))
+    ('java (parse-it-java path))
+    ('python (parse-it-python path))
+    ('typescript (parse-it-typescript path))
     (t (user-error "Language '%s' is not supported" lan))))
 
 
