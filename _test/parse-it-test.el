@@ -23,7 +23,7 @@
 ;; --------------------------------------------------------------------------
 ;; Start testing..
 
-(let* ((lan 'csharp)  ; [NOTE]: Change the langauge here.
+(let* ((lan 'python)  ; [NOTE]: Change the langauge here.
        (load-path load-path)
        (project-path (expand-file-name "../"))
        (dirs (f-directories project-path))
@@ -36,4 +36,4 @@
 
   (require 'parse-it)
   (message "Parsing %s.." lan)
-  (parse-it-util--print-ast-tree (parse-it lan "c:/cool.cs")))
+  (parse-it-util--print-ast-tree (parse-it lan "c:/cool.py")))
