@@ -116,7 +116,7 @@
           parse-it-lex--token-type))
 
 (defun parse-it-c (path)
-  "Parse the PATH in C programming language."
+  "Parse the PATH in C."
   (let* ((parse-it-lex--token-type (parse-it-c--make-token-type))
          (token-list (parse-it-lex-tokenize-it path)))
     (parse-it-ast-build token-list
