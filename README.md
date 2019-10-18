@@ -16,8 +16,10 @@ target programming language.
 * C++ - `c++`
 * C# - `csharp`
 * Java - `java`
+* JavaScript - `js`
 * Python - `python`
 * TypeScript - `typescript`
+
 
 ## Try it yourself!
 
