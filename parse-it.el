@@ -54,6 +54,7 @@
   (require (intern (format "parse-it-%s" (symbol-name lan))))
   (cl-case lan
     ('c (parse-it-c path))
+    ('c++ (parse-it-c++ path))
     ('csharp (parse-it-csharp path))
     ('java (parse-it-java path))
     ('python (parse-it-python path))

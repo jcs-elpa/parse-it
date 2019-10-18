@@ -26,29 +26,24 @@
 
 
 (defconst parse-it-python--token-type
-  '(("COLON" . "[:]")
+  '(("COMMENT" . "[#]")
+    ("COLON" . "[:]")
     ("SEMICOLON" . "[;]")
     ("COMMA" . "[,]")
     ("DOT" . "[.]")
     ("QT_S" . "[']")
     ("QT_D" . "[\"]")
-    ("OPERATOR" . "[!][=]")
-    ("OPERATOR" . "[=][=]")
-    ("OPERATOR" . "[>][=]")
-    ("OPERATOR" . "[<][=]")
-    ("OPERATOR" . "[<][<]")
-    ("OPERATOR" . "[>][>]")
-    ("OPERATOR" . "[+-*%&|^<>~]")
-    ("OPERATOR" . "[^/*][/][^/*]")
-    ("BRKT_SQ_OPN" . "[\\[]")
-    ("BRKT_SQ_CLS" . "[]]")
-    ("PAREN_OPN" . "[(]")
-    ("PAREN_CLS" . "[)]")
     ("ARROW" . "[=][>]")
-    ("EQUAL" . "[=] ")
     ("DECL" . "\\<\\(class\\|enum\\|interface\\namespace|\\|new\\|struct\\)")
     ("KEYWORD" . "\\<\\(public\\|partial\\|private\\|const\\|abstract\\|sealed\\|protected\\|ref\\|out\\|static\\|virtual\\|implicit\\|explicit\\|fixed\\|override\\|params\\|internal\\|async\\|extern\\|unsafe\\|is\\|as\\|operator\\|delegate\\|event\\|set\\|get\\|add\\|remove\\|var\\|do\\|else\\|try\\|finally\\|for\\|if\\|switch\\|while\\|catch\\|foreach\\|using\\|checked\\|unchecked\\|lock\\|return\\|continue\\|break\\|throw\\|goto\\|true\\|false\\|null\\|value\\|this\\|base\\|sizeof\\|typeof\\|yield\\|where\\|select\\|from\\|let\\|orderby\\|ascending\\|descending\\|await\\)"))
   "Python token type.")
+
+(defconst parse-it-python--bracket-token-type
+  '(("BRKT_SQ_OPN" . "[\\[]")
+    ("BRKT_SQ_CLS" . "[]]")
+    ("PAREN_OPN" . "[(]")
+    ("PAREN_CLS" . "[)]"))
+  "Python bracket token type.")
 
 (defconst parse-it-python--into-level-symbols
   '("BRKT_SQ_OPN" "PAREN_OPN")
@@ -62,6 +57,11 @@
 (defun parse-it-python--make-token-type ()
   "Make up the token type."
   (append parse-it-python--token-type
+          parse-it-python--bracket-token-type
+          parse-it-c--c-type-arithmetic-operators-token-type
+          parse-it-c--c-type-inc/dec-operators-token-type
+          parse-it-c--c-type-assignment-operators-token-type
+          parse-it-c--c-type-relational-operators-token-type
           parse-it-lex--token-type))
 
 (defun parse-it-python (path)

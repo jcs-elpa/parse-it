@@ -34,38 +34,22 @@
     ("DOT" . "[.]")
     ("QT_S" . "[']")
     ("QT_D" . "[\"]")
-    ("OPERATOR" . "[!][=]")
-    ("OPERATOR" . "[=][=]")
-    ("OPERATOR" . "[>][=]")
-    ("OPERATOR" . "[<][=]")
-    ("OPERATOR" . "[<][<]")
-    ("OPERATOR" . "[>][>]")
-    ("OPERATOR" . "[+-*%&|^<>~]")
-    ("OPERATOR" . "[^/*][/][^/*]")
-    ("BRKT_CR_OPN" . "[{]")
-    ("BRKT_CR_CLS" . "[}]")
-    ("BRKT_SQ_OPN" . "[\\[]")
-    ("BRKT_SQ_CLS" . "[]]")
-    ("PAREN_OPN" . "[(]")
-    ("PAREN_CLS" . "[)]")
     ("ARROW" . "[=][>]")
-    ("EQUAL" . "[=] ")
     ("KEYWORD" . "\\<\\(abstract\\|any\\|as\\|async\\|await\\|boolean\\|bigint\\|break\\|case\\|catch\\|class\\|const\\|constructor\\|continue\\|declare\\|default\\|delete\\|do\\|else\\|enum\\|export\\|extends\\|extern\\|false\\|finaly\\|for\\|function\\|from\\|get\\|goto\\|if\\|implements\\|import\\|in\\|instanceof\\|interface\\|keyof\\|let\\|module\\|namespace\\|never\\|new\\|null\\|number\\|object\\|of\\|private\\|protected\\|public\\|readonly\\|return\\|set\\|static\\|string\\|super\\|switch\\|this\\|throw\\|true\\|try\\|type\\|typeof\\|var\\|void\\|while\\)"))
   "TypeScript token type.")
-
-(defconst parse-it-typescript--into-level-symbols
-  '("BRKT_CR_OPN" "BRKT_SQ_OPN" "PAREN_OPN")
-  "All symbols that goes into one nested level.")
-
-(defconst parse-it-typescript--back-level-symbols
-  '("BRKT_CR_CLS" "BRKT_SQ_CLS" "PAREN_CLS")
-  "All symbols that goes back up one nested level.")
 
 
 (defun parse-it-typescript--make-token-type ()
   "Make up the token type."
-  (append parse-it-c--c-type-commenting-token-type
-          parse-it-typescript--token-type
+  (append parse-it-typescript--token-type
+          parse-it-c--c-type-comment-token-type
+          parse-it-c--bracket-token-type
+          parse-it-c--c-type-arithmetic-operators-token-type
+          parse-it-c--c-type-inc/dec-operators-token-type
+          parse-it-c--c-type-assignment-operators-token-type
+          parse-it-c--c-type-relational-operators-token-type
+          parse-it-c--c-type-logical-operators-token-type
+          parse-it-c--c-type-bitwise-operators-token-type
           parse-it-lex--token-type))
 
 (defun parse-it-typescript (path)
@@ -73,8 +57,8 @@
   (let* ((parse-it-lex--token-type (parse-it-typescript--make-token-type))
          (token-list (parse-it-lex-tokenize-it path)))
     (parse-it-ast-build token-list
-                        parse-it-typescript--into-level-symbols
-                        parse-it-typescript--back-level-symbols)))
+                        parse-it-c--into-level-symbols
+                        parse-it-c--back-level-symbols)))
 
 
 (provide 'parse-it-typescript)

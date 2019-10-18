@@ -44,7 +44,7 @@
   "Make up the token type."
   (append parse-it-c++--token-type
           parse-it-c--token-type
-          parse-it-c--c-type-commenting-token-type
+          parse-it-c--c-type-comment-token-type
           parse-it-c--bracket-token-type
           parse-it-c--macro-token-type
           parse-it-c--c-type-arithmetic-operators-token-type

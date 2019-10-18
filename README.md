@@ -12,8 +12,11 @@ target programming language.
 
 ## Supported Langauges
 
+* C - `c`
+* C++ - `c++`
 * C# - `csharp`
 * Java - `java`
+* Python - `python`
 * TypeScript - `typescript`
 
 ## Try it yourself!

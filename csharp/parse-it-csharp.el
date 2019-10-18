@@ -34,39 +34,24 @@
     ("DOT" . "[.]")
     ("QT_S" . "[']")
     ("QT_D" . "[\"]")
-    ("OPERATOR" . "[!][=]")
-    ("OPERATOR" . "[=][=]")
-    ("OPERATOR" . "[>][=]")
-    ("OPERATOR" . "[<][=]")
-    ("OPERATOR" . "[<][<]")
-    ("OPERATOR" . "[>][>]")
-    ("OPERATOR" . "[+-*%&|^<>~]")
-    ("OPERATOR" . "[^/*][/][^/*]")
-    ("BRKT_CR_OPN" . "[{]")
-    ("BRKT_CR_CLS" . "[}]")
-    ("BRKT_SQ_OPN" . "[\\[]")
-    ("BRKT_SQ_CLS" . "[]]")
-    ("PAREN_OPN" . "[(]")
-    ("PAREN_CLS" . "[)]")
     ("ARROW" . "[=][>]")
-    ("EQUAL" . "[=] ")
     ("DECL" . "\\<\\(class\\|enum\\|interface\\namespace|\\|new\\|struct\\)")
     ("KEYWORD" . "\\<\\(public\\|partial\\|private\\|const\\|abstract\\|sealed\\|protected\\|ref\\|out\\|static\\|virtual\\|implicit\\|explicit\\|fixed\\|override\\|params\\|internal\\|async\\|extern\\|unsafe\\|is\\|as\\|operator\\|delegate\\|event\\|set\\|get\\|add\\|remove\\|var\\|do\\|else\\|try\\|finally\\|for\\|if\\|switch\\|while\\|catch\\|foreach\\|using\\|checked\\|unchecked\\|lock\\|return\\|continue\\|break\\|throw\\|goto\\|true\\|false\\|null\\|value\\|this\\|base\\|sizeof\\|typeof\\|yield\\|where\\|select\\|from\\|let\\|orderby\\|ascending\\|descending\\|await\\)"))
   "CSharp token type.")
 
-(defconst parse-it-csharp--into-level-symbols
-  '("BRKT_CR_OPN" "BRKT_SQ_OPN" "PAREN_OPN")
-  "All symbols that goes into one nested level.")
-
-(defconst parse-it-csharp--back-level-symbols
-  '("BRKT_CR_CLS" "BRKT_SQ_CLS" "PAREN_CLS")
-  "All symbols that goes back up one nested level.")
-
 
 (defun parse-it-csharp--make-token-type ()
   "Make up the token type."
-  (append parse-it-c--c-type-commenting-token-type
-          parse-it-csharp--token-type
+  (append parse-it-csharp--token-type
+          parse-it-c--c-type-comment-token-type
+          parse-it-c--bracket-token-type
+          parse-it-c--macro-token-type
+          parse-it-c--c-type-arithmetic-operators-token-type
+          parse-it-c--c-type-inc/dec-operators-token-type
+          parse-it-c--c-type-assignment-operators-token-type
+          parse-it-c--c-type-relational-operators-token-type
+          parse-it-c--c-type-logical-operators-token-type
+          parse-it-c--c-type-bitwise-operators-token-type
           parse-it-lex--token-type))
 
 (defun parse-it-csharp (path)
@@ -74,8 +59,8 @@
   (let* ((parse-it-lex--token-type (parse-it-csharp--make-token-type))
          (token-list (parse-it-lex-tokenize-it path)))
     (parse-it-ast-build token-list
-                        parse-it-csharp--into-level-symbols
-                        parse-it-csharp--back-level-symbols)))
+                        parse-it-c--into-level-symbols
+                        parse-it-c--back-level-symbols)))
 
 
 (provide 'parse-it-csharp)
