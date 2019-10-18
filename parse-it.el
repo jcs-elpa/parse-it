@@ -57,6 +57,7 @@
     ('c++ (parse-it-c++ path))
     ('csharp (parse-it-csharp path))
     ('java (parse-it-java path))
+    ('js (parse-it-js path))
     ('python (parse-it-python path))
     ('typescript (parse-it-typescript path))
     (t (user-error "Language '%s' is not supported" lan))))
