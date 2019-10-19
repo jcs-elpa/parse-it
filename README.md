@@ -17,6 +17,7 @@ target programming language.
 * C# - `csharp`
 * Java - `java`
 * JavaScript - `js`
+* Lua - `lua`
 * Python - `python`
 * TypeScript - `typescript`
 

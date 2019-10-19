@@ -24,6 +24,8 @@
 
 ;;; Code:
 
+(require 'parse-it-c)
+
 
 (defconst parse-it-python--token-type
   '(("COMMENT" . "[#]")
