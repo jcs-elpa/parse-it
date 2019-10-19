@@ -51,16 +51,11 @@
 ;;;###autoload
 (defun parse-it (lan &optional path)
   "Parse the PATH with symbol language LAN support."
-  (require (intern (format "parse-it-%s" (symbol-name lan))))
-  (cl-case lan
-    ('c (parse-it-c path))
-    ('c++ (parse-it-c++ path))
-    ('csharp (parse-it-csharp path))
-    ('java (parse-it-java path))
-    ('js (parse-it-js path))
-    ('python (parse-it-python path))
-    ('typescript (parse-it-typescript path))
-    (t (user-error "Language '%s' is not supported" lan))))
+  (let ((mod-name (intern (format "parse-it-%s" (symbol-name lan)))))
+    (if (and (ignore-errors (require mod-name))
+             (functionp mod-name))
+        (funcall mod-name path)
+      (user-error "Language '%s' is not supported" lan))))
 
 
 (provide 'parse-it)
