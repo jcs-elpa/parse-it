@@ -51,8 +51,8 @@
 
 (defun parse-it-ast-build (token-list in-ss bk-ss)
   "Build an AST by using TOKEN-LIST.
-IN-SS are list of symbols that recognized as into level.
-BK-SS are list of symbols that recognized as back level."
+IN-SS is list of symbols that recognized as into level.
+BK-SS is list of symbols that recognized as back level."
   (let* ((ast-tree (parse-it-ast--form-root-ast))
          (parent-node ast-tree)
          (parent-node-stack '())
@@ -64,6 +64,54 @@ BK-SS are list of symbols that recognized as back level."
       (let* ((into-lvl (parse-it-util--is-contain-list-string in-ss token-type))
              (back-lvl (parse-it-util--is-contain-list-string bk-ss token-type))
              (new-node (parse-it-ast--form-node token-type token-val token-pos)))
+        (cond (into-lvl  ; Push stack.
+               (parse-it-ast--add-node parent-node new-node)
+               (push parent-node parent-node-stack)
+               (setq parent-node new-node))
+              (back-lvl  ; Pop stack.
+               (setq parent-node (nth 0 parent-node-stack))
+               (setq parent-node-stack (parse-it-util--remove-nth-element 0 parent-node-stack))
+               (parse-it-ast--add-node parent-node new-node))
+              (t
+               (parse-it-ast--add-node parent-node new-node)))))
+    ast-tree))
+
+(defun parse-it-ast-indent-build (path token-list in-ss bk-ss)
+  "Build an AST by using TOKEN-LIST with indentation interpretation.
+IN-SS is list of symbols that recognized as into level.
+BK-SS is list of symbols that recognized as back level.
+PATH is for getting the source code to identify the indentation level of each line."
+  (let* ((ast-tree (parse-it-ast--form-root-ast))
+         (parent-node ast-tree)
+         (parent-node-stack '())
+         (token-type nil) (token-val nil) (token-pos nil) (token-ln nil)
+         ;; NOTE: Prepare for parsing indentation. (spaces & tabs)
+         (src-code (if path (parse-it-util--get-string-from-file path)
+                     (parse-it-util--get-string-from-buffer (current-buffer))))
+         (src-ln (split-string src-code "\n"))
+         (cur-src-ln "")
+         (cur-ln 0) (cur-indent-len -1)
+         (cur-level -1)
+         (into-lvl nil) (back-lvl nil))
+    (dolist (token token-list)
+      (setq token-type (plist-get token :type))
+      (setq token-val (plist-get token :value))
+      (setq token-pos (plist-get token :pos))
+      (setq token-ln (plist-get token :lineno))
+      (progn  ; Reset..
+        (setq into-lvl nil) (setq back-lvl nil))
+      (unless (= cur-ln token-ln)
+        (setq cur-ln token-ln)  ; Record for not doing it for every token.
+        (setq cur-src-ln (nth (1- token-ln) src-ln))  ; get current code line by line number.
+        (setq cur-level (string-match-p "[^ \t]" cur-src-ln))
+        (unless (= cur-indent-len cur-level)
+          (if (< cur-indent-len cur-level) (setq into-lvl t) (setq back-lvl t))
+          (setq cur-indent-len cur-level)))
+      (let ((new-node (parse-it-ast--form-node token-type token-val token-pos)))
+        (when (and (not into-lvl) (parse-it-util--is-contain-list-string in-ss token-type))
+          (setq into-lvl t))
+        (when (and (not back-lvl) (parse-it-util--is-contain-list-string bk-ss token-type))
+          (setq back-lvl t))
         (cond (into-lvl  ; Push stack.
                (parse-it-ast--add-node parent-node new-node)
                (push parent-node parent-node-stack)
