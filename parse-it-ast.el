@@ -67,13 +67,11 @@ BK-SS are list of symbols that recognized as back level."
         (cond (into-lvl  ; Push stack.
                (parse-it-ast--add-node parent-node new-node)
                (push parent-node parent-node-stack)
-               (setq parent-node new-node)
-               )
+               (setq parent-node new-node))
               (back-lvl  ; Pop stack.
                (setq parent-node (nth 0 parent-node-stack))
                (setq parent-node-stack (parse-it-util--remove-nth-element 0 parent-node-stack))
-               (parse-it-ast--add-node parent-node new-node)
-               )
+               (parse-it-ast--add-node parent-node new-node))
               (t
                (parse-it-ast--add-node parent-node new-node)))))
     ast-tree))
