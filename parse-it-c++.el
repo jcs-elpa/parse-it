@@ -34,9 +34,7 @@
     ("DOT" . "[.]")
     ("QT_S" . "[']")
     ("QT_D" . "[\"]")
-    ("ARROW" . "[=][>]")
-    ("DECL" . "\\<\\(class\\|enum\\|interface\\namespace|\\|new\\|struct\\)")
-    ("KEYWORD" . "\\<\\(public\\|partial\\|private\\|const\\|abstract\\|sealed\\|protected\\|ref\\|out\\|static\\|virtual\\|implicit\\|explicit\\|fixed\\|override\\|params\\|internal\\|async\\|extern\\|unsafe\\|is\\|as\\|operator\\|delegate\\|event\\|set\\|get\\|add\\|remove\\|var\\|do\\|else\\|try\\|finally\\|for\\|if\\|switch\\|while\\|catch\\|foreach\\|using\\|checked\\|unchecked\\|lock\\|return\\|continue\\|break\\|throw\\|goto\\|true\\|false\\|null\\|value\\|this\\|base\\|sizeof\\|typeof\\|yield\\|where\\|select\\|from\\|let\\|orderby\\|ascending\\|descending\\|await\\)"))
+    ("KEYWORD" . "\\<\\(asm\\|bool\\|catch\\|class\\|const_cast\\|delete\\|dynamic_cast\\|explicit\\|export\\|false\\|friend\\|inline\\|mutable\\|namespace\\|new\\|operator\\|private\\|protected\\|public\\|reinterpret_cast\\|static_cast\\|template\\|this\\|throw\\|true\\|try\\|typeid\\|typename\\|using\\|virtual\\|wchar_t\\|nullptr\\)"))
   "C++ token type.")
 
 

@@ -27,7 +27,8 @@
 (defconst parse-it-c--token-type
   '(("ASK" . "[^/*][*][^/*]")
     ("AMP" . "[^&][&][^&]")
-    ("PTR" . "[-][>]"))
+    ("PTR" . "[-][>]")
+    ("KEYWORD" . "\\<\\(auto\\|break\\|case\\|char\\|const\\|continue\\|default\\|do\\|double\\|else\\|enum\\|extern\\|float\\|for\\|goto\\|if\\|int\\|long\\|register\\|return\\|short\\|signed\\|sizeof\\|static\\|struct\\|switch\\|typedef\\|union\\|unsigned\\|void\\|volatile\\|while\\)"))
   "C token type.")
 
 (defconst parse-it-c--c-type-comment-token-type
