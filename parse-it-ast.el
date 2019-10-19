@@ -61,9 +61,9 @@ BK-SS is list of symbols that recognized as back level."
       (setq token-type (plist-get token :type))
       (setq token-val (plist-get token :value))
       (setq token-pos (plist-get token :pos))
-      (let* ((into-lvl (parse-it-util--is-contain-list-string in-ss token-type))
-             (back-lvl (parse-it-util--is-contain-list-string bk-ss token-type))
-             (new-node (parse-it-ast--form-node token-type token-val token-pos)))
+      (let ((into-lvl (parse-it-util--is-contain-list-string in-ss token-type))
+            (back-lvl (parse-it-util--is-contain-list-string bk-ss token-type))
+            (new-node (parse-it-ast--form-node token-type token-val token-pos)))
         (cond (into-lvl  ; Push stack.
                (parse-it-ast--add-node parent-node new-node)
                (push parent-node parent-node-stack)
@@ -90,29 +90,36 @@ PATH is for getting the source code to identify the indentation level of each li
                      (parse-it-util--get-string-from-buffer (current-buffer))))
          (src-ln (split-string src-code "\n"))
          (cur-src-ln "")
-         (cur-ln 0) (cur-indent-len -1)
+         (cur-ln 0) (cur-indent-len 0)
          (cur-level -1)
-         (into-lvl nil) (back-lvl nil))
+         (into-ind nil) (back-ind nil)
+         (last-node nil))
     (dolist (token token-list)
       (setq token-type (plist-get token :type))
       (setq token-val (plist-get token :value))
       (setq token-pos (plist-get token :pos))
       (setq token-ln (plist-get token :lineno))
       (progn  ; Reset..
-        (setq into-lvl nil) (setq back-lvl nil))
+        (setq into-ind nil) (setq back-ind nil))
       (unless (= cur-ln token-ln)
         (setq cur-ln token-ln)  ; Record for not doing it for every token.
         (setq cur-src-ln (nth (1- token-ln) src-ln))  ; get current code line by line number.
         (setq cur-level (string-match-p "[^ \t]" cur-src-ln))
         (unless (= cur-indent-len cur-level)
-          (if (< cur-indent-len cur-level) (setq into-lvl t) (setq back-lvl t))
+          (if (< cur-indent-len cur-level) (setq into-ind t) (setq back-ind t))
           (setq cur-indent-len cur-level)))
-      (let ((new-node (parse-it-ast--form-node token-type token-val token-pos)))
-        (when (and (not into-lvl) (parse-it-util--is-contain-list-string in-ss token-type))
-          (setq into-lvl t))
-        (when (and (not back-lvl) (parse-it-util--is-contain-list-string bk-ss token-type))
-          (setq back-lvl t))
-        (cond (into-lvl  ; Push stack.
+      (let ((into-lvl (parse-it-util--is-contain-list-string in-ss token-type))
+            (back-lvl (parse-it-util--is-contain-list-string bk-ss token-type))
+            (new-node (parse-it-ast--form-node token-type token-val token-pos)))
+        (cond (into-ind
+               (setq parent-node last-node)
+               (push parent-node parent-node-stack)
+               (parse-it-ast--add-node parent-node new-node))
+              (back-ind
+               (setq parent-node-stack (parse-it-util--remove-nth-element 0 parent-node-stack))
+               (setq parent-node (nth 0 parent-node-stack))
+               (parse-it-ast--add-node parent-node new-node))
+              (into-lvl  ; Push stack.
                (parse-it-ast--add-node parent-node new-node)
                (push parent-node parent-node-stack)
                (setq parent-node new-node))
@@ -121,7 +128,8 @@ PATH is for getting the source code to identify the indentation level of each li
                (setq parent-node-stack (parse-it-util--remove-nth-element 0 parent-node-stack))
                (parse-it-ast--add-node parent-node new-node))
               (t
-               (parse-it-ast--add-node parent-node new-node)))))
+               (parse-it-ast--add-node parent-node new-node)))
+        (setq last-node new-node)))
     ast-tree))
 
 
