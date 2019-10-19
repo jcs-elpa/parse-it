@@ -34,9 +34,7 @@
     ("DOT" . "[.]")
     ("QT_S" . "[']")
     ("QT_D" . "[\"]")
-    ("ARROW" . "[=][>]")
-    ("DECL" . "\\<\\(class\\|enum\\|interface\\namespace|\\|new\\|struct\\)")
-    ("KEYWORD" . "\\<\\(public\\|partial\\|private\\|const\\|abstract\\|sealed\\|protected\\|ref\\|out\\|static\\|virtual\\|implicit\\|explicit\\|fixed\\|override\\|params\\|internal\\|async\\|extern\\|unsafe\\|is\\|as\\|operator\\|delegate\\|event\\|set\\|get\\|add\\|remove\\|var\\|do\\|else\\|try\\|finally\\|for\\|if\\|switch\\|while\\|catch\\|foreach\\|using\\|checked\\|unchecked\\|lock\\|return\\|continue\\|break\\|throw\\|goto\\|true\\|false\\|null\\|value\\|this\\|base\\|sizeof\\|typeof\\|yield\\|where\\|select\\|from\\|let\\|orderby\\|ascending\\|descending\\|await\\)"))
+    ("KEYWORD" . "\\<\\(abstract\\|assert\\|boolean\\|break\\|byte\\|case\\|catch\\|char\\|class\\|const\\|continue\\|default\\|do\\|double\\|else\\|enum\\|extends\\|final\\|finally\\|float\\|for\\|goto\\|if\\|implements\\|import\\|instanceof\\|int\\|interface\\|long\\|native\\|new\\|package\\|private\\|protected\\|public\\|return\\|short\\|static\\|strictfp\\|super\\|switch\\|synchronized\\|this\\|throw\\|throws\\|transient\\|try\\|void\\|volatile\\|while\\|true\\|false\\|null\\)"))
   "Java token type.")
 
 
