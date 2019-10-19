@@ -12,6 +12,7 @@ target programming language.
 
 ## Supported Langauges
 
+* ActionScript - `actionscript`
 * C - `c`
 * C++ - `c++`
 * C# - `csharp`
