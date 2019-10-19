@@ -27,12 +27,16 @@
 
 (defconst parse-it-python--token-type
   '(("COMMENT" . "[#]")
+    ("COMMENT_BEG" . "[\"][\"][\"]")
+    ("COMMENT_END" . "[\"][\"][\"]")
+    ("COMMENT_BEG" . "[']['][']")
+    ("COMMENT_END" . "[']['][']")
     ("COLON" . "[:]")
     ("SEMICOLON" . "[;]")
     ("COMMA" . "[,]")
     ("DOT" . "[.]")
     ("QT_S" . "[']")
-    ("QT_D" . "[\"]")
+    ;;("QT_D" . "[^\"][^\"][\"][^\"][^\"]")
     ("ARROW" . "[=][>]")
     ("KEYWORD" . "\\<\\(break\\|case\\|catch\\|continue\\|debugger\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|in\\|instanceof\\|new\\|return\\|switch\\|this\\|throw\\|try\\|typeof\\|var\\|void\\|while\\|with\\|null\\|true\\|false\\|NaN\\|Infinity\\|undefined\\)"))
   "Python token type.")
@@ -43,14 +47,6 @@
     ("PAREN_OPN" . "[(]")
     ("PAREN_CLS" . "[)]"))
   "Python bracket token type.")
-
-(defconst parse-it-python--into-level-symbols
-  '("BRKT_SQ_OPN" "PAREN_OPN")
-  "All symbols that goes into one nested level.")
-
-(defconst parse-it-python--back-level-symbols
-  '("BRKT_SQ_CLS" "PAREN_CLS")
-  "All symbols that goes back up one nested level.")
 
 
 (defun parse-it-python--make-token-type ()
@@ -67,9 +63,10 @@
   "Parse the PATH Python."
   (let* ((parse-it-lex--token-type (parse-it-python--make-token-type))
          (token-list (parse-it-lex-tokenize-it path)))
-    (parse-it-ast-build token-list
-                        parse-it-python--into-level-symbols
-                        parse-it-python--back-level-symbols)))
+    (parse-it-ast-indent-build path
+                               token-list
+                               parse-it-c--into-level-symbols
+                               parse-it-c--back-level-symbols)))
 
 
 (provide 'parse-it-python)
