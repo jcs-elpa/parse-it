@@ -38,6 +38,12 @@
     ("KEYWORD" . "\\<\\(abstract\\|any\\|as\\|async\\|await\\|boolean\\|bigint\\|break\\|case\\|catch\\|class\\|const\\|constructor\\|continue\\|declare\\|default\\|delete\\|do\\|else\\|enum\\|export\\|extends\\|extern\\|false\\|finaly\\|for\\|function\\|from\\|get\\|goto\\|if\\|implements\\|import\\|in\\|instanceof\\|interface\\|keyof\\|let\\|module\\|namespace\\|never\\|new\\|null\\|number\\|object\\|of\\|private\\|protected\\|public\\|readonly\\|return\\|set\\|static\\|string\\|super\\|switch\\|this\\|throw\\|true\\|try\\|type\\|typeof\\|var\\|void\\|while\\)"))
   "JavaScript token type.")
 
+(defconst parse-it-js--relational-operators-token-type
+  '(("RE_OP" . "[=][=][=]")
+    ("RE_OP" . "[!][=][=]"))
+  "JavaScript relational operators token type.")
+
+
 (defun parse-it-js--make-token-type ()
   "Make up the token type."
   (append parse-it-js--token-type
@@ -46,6 +52,7 @@
           parse-it-c--c-type-arithmetic-operators-token-type
           parse-it-c--c-type-inc/dec-operators-token-type
           parse-it-c--c-type-assignment-operators-token-type
+          parse-it-js--relational-operators-token-type
           parse-it-c--c-type-relational-operators-token-type
           parse-it-c--c-type-logical-operators-token-type
           parse-it-c--c-type-bitwise-operators-token-type
