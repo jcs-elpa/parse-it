@@ -64,8 +64,9 @@
                ana-src))))
     (split-string ana-src " " t nil)))
 
-(defun parse-it-lex--find-token-type (sec)
-  "Find out section of code's (SEC) token type."
+(defun parse-it-lex--find-token-type (sec mul-comment)
+  "Find out section of code's (SEC) token type.
+MUL-COMMENT is the flag to check if is multiline commenting."
   (let ((tk-tp "") (token-type "") (token-regex "") (tk-index 0) (tk-break nil))
     (while (and (< tk-index (length parse-it-lex--token-type))
                 (not tk-break))
@@ -73,7 +74,16 @@
       (setq token-regex (cdr tk-tp))
       (when (string-match-p token-regex sec)
         (setq token-type (car tk-tp))
-        (setq tk-break t))
+        ;; NOTE: Check if beginning of comment, in order to escape
+        ;; beginning of comment patterns. Hence, if comment (end) pattern
+        ;; is the same as comment (beg) pattern then type should be assign
+        ;; to comment (end).
+        ;;
+        ;; This should help recognize programming language using the same
+        ;; pattern to (beg) and (end) commenting.
+        (when (or (not mul-comment)
+                  (not (string= token-type parse-it-lex--magic-comment-beg)))
+          (setq tk-break t)))
       (setq tk-index (1+ tk-index)))
     token-type))
 
@@ -114,7 +124,7 @@
         (when matched-pos (setq pos (+ pos matched-pos))))
       (when (or (not (string-empty-p sec))
                 newline-there)
-        (setq token-type (parse-it-lex--find-token-type sec))
+        (setq token-type (parse-it-lex--find-token-type sec mul-comment))
         (cond
          ((string= token-type parse-it-lex--magic-comment-beg) (setq mul-comment t))
          ((string= token-type parse-it-lex--magic-comment-end) (setq mul-comment nil))
