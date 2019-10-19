@@ -6,7 +6,7 @@
 > Basic Parser in Emacs Lisp.
 
 For most of the `major-mode` that needed a parser to act correctly. This is
-between RegExp base parser. The goal of this project is to generate AST for
+a RegExp base parser. The goal of this project is to generate AST for
 target programming language.
 
 
