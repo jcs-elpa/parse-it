@@ -36,9 +36,9 @@
     ("COMMA" . "[,]")
     ("DOT" . "[.]")
     ("QT_S" . "[']")
-    ;;("QT_D" . "[^\"][^\"][\"][^\"][^\"]")
+    ("QT_D" . "[\"]")
     ("ARROW" . "[=][>]")
-    ("KEYWORD" . "\\<\\(break\\|case\\|catch\\|continue\\|debugger\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|in\\|instanceof\\|new\\|return\\|switch\\|this\\|throw\\|try\\|typeof\\|var\\|void\\|while\\|with\\|null\\|true\\|false\\|NaN\\|Infinity\\|undefined\\)"))
+    ("KEYWORD" . "\\<\\(break\\|case\\|catch\\|continue\\|debugger\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|instanceof\\|in\\|new\\|return\\|switch\\|this\\|throw\\|try\\|typeof\\|var\\|void\\|while\\|with\\|null\\|true\\|false\\|NaN\\|Infinity\\|undefined\\)"))
   "Lua token type.")
 
 
