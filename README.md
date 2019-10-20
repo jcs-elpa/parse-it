@@ -16,11 +16,13 @@ target programming language.
 * C - `c`
 * C++ - `c++`
 * C# - `csharp`
+* HTML - `html`
 * Java - `java`
 * JavaScript - `js`
 * Lua - `lua`
 * Python - `python`
 * TypeScript - `typescript`
+* XML - `xml`
 
 
 ## Try it yourself!
