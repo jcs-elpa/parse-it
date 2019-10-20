@@ -22,7 +22,11 @@ target programming language.
 * JavaScript - `js`
 * Kotlin - `kotlin`
 * Lua - `lua`
+* Markdown - `markdown`  [TODO]
+* Objective-C - `objc`  [TODO]
+* PHP - `php`  [TODO]
 * Python - `python`
+* SQL - `sql`  [TODO]
 * TypeScript - `typescript`
 * XML - `xml`
 
