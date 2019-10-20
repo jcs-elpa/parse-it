@@ -14,9 +14,11 @@ target programming language.
 ## Supported Langauges
 
 * ActionScript - `actionscript`
+* Assembly Language - `asm`  [TODO]
 * C - `c`
 * C++ - `c++`
 * C# - `csharp`
+* Go - `go`  [TODO]
 * HTML - `html`
 * Java - `java`
 * JavaScript - `js`
@@ -26,7 +28,9 @@ target programming language.
 * Objective-C - `objc`  [TODO]
 * PHP - `php`  [TODO]
 * Python - `python`
+* R - `r`  [TODO]
 * SQL - `sql`  [TODO]
+* Swift - `swift`  [TODO]
 * TypeScript - `typescript`
 * XML - `xml`
 
