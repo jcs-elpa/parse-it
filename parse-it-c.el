@@ -70,12 +70,12 @@
   "C type assignment operators token type.")
 
 (defconst parse-it-c--c-type-relational-operators-token-type
-  '(("RE_OP" . "[!][=]")
-    ("RE_OP" . "[=][=]")
-    ("RE_OP" . "[>][=]")
-    ("RE_OP" . "[<][=]")
-    ("RE_OP" . "[^<]\\([<]\\)[^<]")
-    ("RE_OP" . "[^>]\\([>]\\)[^>]"))
+  '(("RE_OP" . "[!][=]")              ; !=
+    ("RE_OP" . "[=][=]")              ; ==
+    ("RE_OP" . "[>][=]")              ; >=
+    ("RE_OP" . "[<][=]")              ; <=
+    ("RE_OP" . "[^<]\\([<]\\)[^<]")   ; <
+    ("RE_OP" . "[^>]\\([>]\\)[^>]"))  ; >
   "C type relational operators token type.")
 
 (defconst parse-it-c--c-type-logical-operators-token-type
