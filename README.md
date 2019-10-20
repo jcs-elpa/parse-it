@@ -20,6 +20,7 @@ target programming language.
 * HTML - `html`
 * Java - `java`
 * JavaScript - `js`
+* Kotlin - `kotlin`
 * Lua - `lua`
 * Python - `python`
 * TypeScript - `typescript`
