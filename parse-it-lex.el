@@ -49,6 +49,23 @@
   "Ignore newline when tokenizing.")
 
 
+(defun parse-it-lex--get-inner-regex (regex)
+  "Return a inner group REGEX."
+  (let ((start-bnd (string-match-p "\\\\(" regex))
+        (end-bnd (string-match-p "\\\\)" regex)))
+    (if (and start-bnd end-bnd)
+        (substring regex (+ start-bnd 2) end-bnd)
+      nil)))
+
+(defun parse-it-lex--regex-engine (match-str regex)
+  "Lexer's REGEX engine definition to MATCH-STR."
+  (let ((inner-regex (parse-it-lex--get-inner-regex regex)))
+    (if inner-regex
+        (s-replace-regexp inner-regex
+                          (lambda (inner-match-str) (concat " " inner-match-str " "))
+                          match-str)
+      (concat " " match-str " "))))
+
 (defun parse-it-lex--split-to-token-list (src-code)
   "Split SRC-CODE to list of token readable list."
   (let ((ana-src src-code) (token-regex ""))
@@ -60,18 +77,22 @@
         (setq ana-src
               (s-replace-regexp
                token-regex
-               (lambda (match-str) (concat " " match-str " "))
+               (lambda (match-str)
+                 (parse-it-lex--regex-engine match-str token-regex))
                ana-src))))
     (split-string ana-src " " t nil)))
 
 (defun parse-it-lex--find-token-type (sec mul-comment)
   "Find out section of code's (SEC) token type.
 MUL-COMMENT is the flag to check if is multiline commenting."
-  (let ((tk-tp "") (token-type "") (token-regex "") (tk-index 0) (tk-break nil))
+  (let ((tk-tp "") (token-type "") (token-regex "") (tk-index 0) (tk-break nil)
+        (inner-regex nil))
     (while (and (< tk-index (length parse-it-lex--token-type))
                 (not tk-break))
       (setq tk-tp (nth tk-index parse-it-lex--token-type))
       (setq token-regex (cdr tk-tp))
+      (setq inner-regex (parse-it-lex--get-inner-regex token-regex))
+      (when inner-regex (setq token-regex inner-regex))
       (when (string-match-p token-regex sec)
         (setq token-type (car tk-tp))
         ;; NOTE: Check if beginning of comment, in order to escape
