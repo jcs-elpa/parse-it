@@ -28,14 +28,40 @@
 
 
 (defconst parse-it-kotlin--token-type
-  '(("COLON" . "[:]")
+  '(("COLON" . "[^:]\\([:]\\)[^:]")
     ("SEMICOLON" . "[;]")
     ("COMMA" . "[,]")
-    ("DOT" . "[.]")
+    ("DOT" . "[^.]\\([.]\\)[^.]")
     ("QT_S" . "[']")
     ("QT_D" . "[\"]")
-    ("KEYWORD" . "\\<\\(abstract\\|assert\\|boolean\\|break\\|byte\\|case\\|catch\\|char\\|class\\|const\\|continue\\|default\\|do\\|double\\|else\\|enum\\|extends\\|final\\|finally\\|float\\|for\\|goto\\|if\\|implements\\|import\\|instanceof\\|int\\|interface\\|long\\|native\\|new\\|package\\|private\\|protected\\|public\\|return\\|short\\|static\\|strictfp\\|super\\|switch\\|synchronized\\|this\\|throw\\|throws\\|transient\\|try\\|void\\|volatile\\|while\\|true\\|false\\|null\\)"))
+    ("KEYWORD" . "!in")
+    ("KEYWORD" . "!is")
+    ("KEYWORD" . "\\<\\(as\\?\\|as\\|break\\|class\\|continue\\|do\\|else\\|false\\|for\\|fun\\|if\\|interface\\|\\in\\|is\\|null\\|object\\|package\\|return\\|super\\|this\\|throw\\|true\\|try\\|typealias\\|typeof\\|val\\|var\\|when\\|while\\|by\\|catch\\|constructor\\|delegate\\|dynamic\\|field\\|file\\|finally\\|get\\|import\\|init\\|param\\|property\\|receiver\\|set\\|setparam\\|where\\|actual\\|abstract\\|annotation\\|companion\\|const\\|crossinline\\|data\\|enum\\|expect\\|external\\|final\\|infix\\|inline\\|inner\\|internal\\|lateinit\\|noinline\\|open\\|operator\\|out\\|override\\|private\\|public\\|reified\\|sealed\\|suspend\\|tailrec\\|vararg\\|it\\)"))
   "Kotlin token type.")
+
+(defconst parse-it-kotlin--ref/equ-operators-token-type
+  '(("RE_OP" . "[=][=][=]")
+    ("RE_OP" . "[!][=][=]"))
+  "Kotlin referential equality operators token type.")
+
+(defconst parse-it-kotlin--logical-operators-token-type
+  '(("LG_OP" . "[&][&]")
+    ("LG_OP" . "[|][|]")
+    ("LG_OP" . "\\([!]\\)[^=!]"))
+  "Kotlin logical operators token type.")
+
+(defconst parse-it-kotlin--special-symbols-token-type
+  '(("SS_OP" . "[:][:]")
+    ("SS_OP" . "[!][!]")
+    ("SS_OP" . "[?][.]")
+    ("SS_OP" . "[?][:]")
+    ("SS_OP" . "[?]")
+    ("SS_OP" . "[.][.]")
+    ("SS_OP" . "[-][>]")
+    ("SS_OP" . "[@]")
+    ("SS_OP" . "[$]")
+    ("SS_OP" . "[_]"))
+  "Kotlin special symbols token type.")
 
 
 (defun parse-it-kotlin--make-token-type ()
@@ -47,8 +73,10 @@
           parse-it-c--c-type-arithmetic-operators-token-type
           parse-it-c--c-type-inc/dec-operators-token-type
           parse-it-c--c-type-assignment-operators-token-type
+          parse-it-kotlin--ref/equ-operators-token-type
           parse-it-c--c-type-relational-operators-token-type
-          parse-it-c--c-type-logical-operators-token-type
+          parse-it-kotlin--logical-operators-token-type
+          parse-it-kotlin--special-symbols-token-type
           parse-it-c--c-type-bitwise-operators-token-type
           parse-it-lex--token-type))
 
