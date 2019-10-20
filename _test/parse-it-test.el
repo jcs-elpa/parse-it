@@ -24,6 +24,7 @@
 ;; Start testing..
 
 (let* ((lan 'python)  ; [NOTE]: Change the langauge here.
+       (path "c:/cool.py")
        (load-path load-path)
        (project-path (expand-file-name "../"))
        (dirs (f-directories project-path))
@@ -36,4 +37,4 @@
 
   (require 'parse-it)
   (message "Parsing %s.." lan)
-  (parse-it-util--print-ast-tree (parse-it lan "c:/cool.py")))
+  (parse-it-util--print-ast-tree (parse-it lan path)))
