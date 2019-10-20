@@ -25,8 +25,8 @@
 ;;; Code:
 
 (defconst parse-it-c--token-type
-  '(("ASK" . "[^/*][*][^/*]")
-    ("AMP" . "[^&][&][^&]")
+  '(("ASK" . "[^/*]\\([*]\\)[^/*]")
+    ("AMP" . "[^&]\\([&]\\)[^&]")
     ("PTR" . "[-][>]")
     ("KEYWORD" . "\\<\\(auto\\|break\\|case\\|char\\|const\\|continue\\|default\\|do\\|double\\|else\\|enum\\|extern\\|float\\|for\\|goto\\|if\\|int\\|long\\|register\\|return\\|short\\|signed\\|sizeof\\|static\\|struct\\|switch\\|typedef\\|union\\|unsigned\\|void\\|volatile\\|while\\)"))
   "C token type.")
@@ -52,7 +52,7 @@
 
 (defconst parse-it-c--c-type-arithmetic-operators-token-type
   '(("AR_OP" . "[+-*%]")
-    ("AR_OP" . "[^/*][/][^/*]"))  ; For `/' divide symbol.
+    ("AR_OP" . "[^/*]\\([/]\\)[^/*]"))  ; For `/' divide symbol.
   "C type arithmetic operators token type.")
 
 (defconst parse-it-c--c-type-inc/dec-operators-token-type
@@ -66,7 +66,7 @@
     ("AS_OP" . "[*][=]")
     ("AS_OP" . "[/][=]")
     ("AS_OP" . "[%][=]")
-    ("AS_OP" . "[^+-*/%][=] "))
+    ("AS_OP" . "[^+-*/%]\\([=]\\)"))
   "C type assignment operators token type.")
 
 (defconst parse-it-c--c-type-relational-operators-token-type
@@ -74,19 +74,19 @@
     ("RE_OP" . "[=][=]")
     ("RE_OP" . "[>][=]")
     ("RE_OP" . "[<][=]")
-    ("RE_OP" . "[^<][<][^<]")
-    ("RE_OP" . "[^>][>][^>]"))
+    ("RE_OP" . "[^<]\\([<]\\)[^<]")
+    ("RE_OP" . "[^>]\\([>]\\)[^>]"))
   "C type relational operators token type.")
 
 (defconst parse-it-c--c-type-logical-operators-token-type
   '(("LG_OP" . "[&][&]")
     ("LG_OP" . "[|][|]")
-    ("LG_OP" . "[!][^=]"))
+    ("LG_OP" . "\\([!]\\)[^=]"))
   "C type logical operators token type.")
 
 (defconst parse-it-c--c-type-bitwise-operators-token-type
-  '(("BT_OP" . "[^&][&][^&]")
-    ("BT_OP" . "[^|][|][^|]")
+  '(("BT_OP" . "[^&]\\([&]\\)[^&]")
+    ("BT_OP" . "[^|]\\([|]\\)[^|]")
     ("BT_OP" . "[\\^]")
     ("BT_OP" . "[~]")
     ("BT_OP" . "[<][<]")

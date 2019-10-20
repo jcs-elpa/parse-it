@@ -35,8 +35,7 @@
     ("QT_S" . "[']")
     ("QT_D" . "[\"]")
     ("ARROW" . "[=][>]")
-    ("DECL" . "\\<\\(class\\|enum\\|interface\\namespace|\\|new\\|struct\\)")
-    ("KEYWORD" . "\\<\\(public\\|partial\\|private\\|const\\|abstract\\|sealed\\|protected\\|ref\\|out\\|static\\|virtual\\|implicit\\|explicit\\|fixed\\|override\\|params\\|internal\\|async\\|extern\\|unsafe\\|is\\|as\\|operator\\|delegate\\|event\\|set\\|get\\|add\\|remove\\|var\\|do\\|else\\|try\\|finally\\|for\\|if\\|switch\\|while\\|catch\\|foreach\\|using\\|checked\\|unchecked\\|lock\\|return\\|continue\\|break\\|throw\\|goto\\|true\\|false\\|null\\|value\\|this\\|base\\|sizeof\\|typeof\\|yield\\|where\\|select\\|from\\|let\\|orderby\\|ascending\\|descending\\|await\\)"))
+    ("KEYWORD" . "\\<\\(abstract\\|as\\|base\\|bool\\|break\\|byte\\|case\\|catch\\|char\\|checked\\|class\\|const\\|continue\\|decimal\\|default\\|delegate\\|do\\|double\\|else\\|enum\\|event\\|explicit\\|extern\\|false\\|finally\\|fixed\\|float\\|foreach\\|for\\|goto\\|if\\|implicit\\|interface\\|internal\\|int\\|in\\|is\\|lock\\|long\\|namespace\\|new\\|null\\|object\\|operator\\|out\\|override\\|params\\|private\\|protected\\|public\\|readonly\\|ref\\|return\\|sbyte\\|sealed\\|short\\|sizeof\\|stackalloc\\|static\\|string\\|struct\\|switch\\|this\\|throw\\|true\\|try\\|typeof\\|uint\\|ulong\\|unchecked\\|unsafe\\|ushort\\|using\\|virtual\\|void\\|volatile\\|while\\)"))
   "CSharp token type.")
 
 
