@@ -19,7 +19,7 @@ target programming language.
 * C++ - `c++`
 * C# - `csharp`
 * CSS - `css`
-* Go - `go`  [TODO]
+* Go - `go`
 * HTML - `html`
 * Java - `java`
 * JavaScript - `js`
