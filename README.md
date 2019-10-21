@@ -31,7 +31,7 @@ target programming language.
 * Python - `python`
 * R - `r`  [TODO]
 * SQL - `sql`  [TODO]
-* Swift - `swift`  [TODO]
+* Swift - `swift`
 * TypeScript - `typescript`
 * XML - `xml`
 
