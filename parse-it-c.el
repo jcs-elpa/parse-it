@@ -51,7 +51,7 @@
   "C type macro token type.")
 
 (defconst parse-it-c--c-type-arithmetic-operators-token-type
-  '(("AR_OP" . "[+-*%]")
+  '(("AR_OP" . "[+-*%]")                ; + - * %
     ("AR_OP" . "[^/*]\\([/]\\)[^/*]"))  ; For `/' divide symbol.
   "C type arithmetic operators token type.")
 
