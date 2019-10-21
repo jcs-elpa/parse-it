@@ -27,7 +27,7 @@ target programming language.
 * Lua - `lua`
 * Markdown - `markdown`  [TODO]
 * Objective-C - `objc`
-* PHP - `php`  [TODO]
+* PHP - `php`
 * Python - `python`
 * R - `r`  [TODO]
 * SQL - `sql`  [TODO]
