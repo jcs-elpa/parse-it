@@ -32,18 +32,18 @@
   "C token type.")
 
 (defconst parse-it-c--c-type-comment-token-type
-  '(("COMMENT" . "[/][/]")
-    ("COMMENT_BEG" . "/[*]+")
-    ("COMMENT_END" . "[*]/"))
+  '(("COMMENT" . "[/][/]")     ; //
+    ("COMMENT_BEG" . "/[*]+")  ; /*
+    ("COMMENT_END" . "[*]/"))  ; */
   "C type comment token type.")
 
 (defconst parse-it-c--bracket-token-type
-  '(("BRKT_CR_OPN" . "[{]")
-    ("BRKT_CR_CLS" . "[}]")
-    ("BRKT_SQ_OPN" . "[\\[]")
-    ("BRKT_SQ_CLS" . "[]]")
-    ("PAREN_OPN" . "[(]")
-    ("PAREN_CLS" . "[)]"))
+  '(("BRKT_CR_OPN" . "[{]")    ; {
+    ("BRKT_CR_CLS" . "[}]")    ; }
+    ("BRKT_SQ_OPN" . "[\\[]")  ; [
+    ("BRKT_SQ_CLS" . "[]]")    ; ]
+    ("PAREN_OPN" . "[(]")      ; (
+    ("PAREN_CLS" . "[)]"))     ; )
   "C type bracket token type.")
 
 (defconst parse-it-c--macro-token-type
@@ -56,17 +56,17 @@
   "C type arithmetic operators token type.")
 
 (defconst parse-it-c--c-type-inc/dec-operators-token-type
-  '(("ID_OP" . "[-][-]")
-    ("ID_OP" . "[+][+]"))
+  '(("ID_OP" . "[-][-]")   ; --
+    ("ID_OP" . "[+][+]"))  ; ++
   "C type increment/decrement operators token type.")
 
 (defconst parse-it-c--c-type-assignment-operators-token-type
-  '(("AS_OP" . "[+][=]")
-    ("AS_OP" . "[-][=]")
-    ("AS_OP" . "[*][=]")
-    ("AS_OP" . "[/][=]")
-    ("AS_OP" . "[%][=]")
-    ("AS_OP" . "[^+-*/%]\\([=]\\)"))
+  '(("AS_OP" . "[+][=]")              ; +=
+    ("AS_OP" . "[-][=]")              ; -=
+    ("AS_OP" . "[*][=]")              ; *=
+    ("AS_OP" . "[/][=]")              ; /=
+    ("AS_OP" . "[%][=]")              ; %=
+    ("AS_OP" . "[^+-*/%]\\([=]\\)"))  ; =
   "C type assignment operators token type.")
 
 (defconst parse-it-c--c-type-relational-operators-token-type
@@ -79,18 +79,18 @@
   "C type relational operators token type.")
 
 (defconst parse-it-c--c-type-logical-operators-token-type
-  '(("LG_OP" . "[&][&]")
-    ("LG_OP" . "[|][|]")
-    ("LG_OP" . "\\([!]\\)[^=]"))
+  '(("LG_OP" . "[&][&]")          ; &&
+    ("LG_OP" . "[|][|]")          ; ||
+    ("LG_OP" . "\\([!]\\)[^=]"))  ; !
   "C type logical operators token type.")
 
 (defconst parse-it-c--c-type-bitwise-operators-token-type
-  '(("BT_OP" . "[^&]\\([&]\\)[^&]")
-    ("BT_OP" . "[^|]\\([|]\\)[^|]")
-    ("BT_OP" . "[\\^]")
-    ("BT_OP" . "[~]")
-    ("BT_OP" . "[<][<]")
-    ("BT_OP" . "[>][>]"))
+  '(("BT_OP" . "[^&]\\([&]\\)[^&]")  ; &
+    ("BT_OP" . "[^|]\\([|]\\)[^|]")  ; |
+    ("BT_OP" . "[^]")                ; ^
+    ("BT_OP" . "[~]")                ; ~
+    ("BT_OP" . "[<][<]")             ; <<
+    ("BT_OP" . "[>][>]"))            ; >>
   "C type bitwise operators token type.")
 
 (defconst parse-it-c--into-level-symbols
