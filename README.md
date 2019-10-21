@@ -26,7 +26,7 @@ target programming language.
 * Kotlin - `kotlin`
 * Lua - `lua`
 * Markdown - `markdown`  [TODO]
-* Objective-C - `objc`  [TODO]
+* Objective-C - `objc`
 * PHP - `php`  [TODO]
 * Python - `python`
 * R - `r`  [TODO]
