@@ -14,7 +14,7 @@ target programming language.
 ## Supported Langauges
 
 * ActionScript - `actionscript`
-* Assembly Language - `asm`  [TODO]
+* Assembly Language - `asm`
 * C - `c`
 * C++ - `c++`
 * C# - `csharp`
