@@ -34,8 +34,7 @@
     ("DOT" . "[^.]\\([.]\\)[^.]")
     ("QT_S" . "[']")
     ("QT_D" . "[\"]")
-    ("KEYWORD" . "!in")
-    ("KEYWORD" . "!is")
+    ("KEYWORD" . "\\B\\(!in\\|!is\\)\\b")
     ("KEYWORD" . "\\<\\(as\\?\\|as\\|break\\|class\\|continue\\|do\\|else\\|false\\|for\\|fun\\|if\\|interface\\|\\in\\|is\\|null\\|object\\|package\\|return\\|super\\|this\\|throw\\|true\\|try\\|typealias\\|typeof\\|val\\|var\\|when\\|while\\|by\\|catch\\|constructor\\|delegate\\|dynamic\\|field\\|file\\|finally\\|get\\|import\\|init\\|param\\|property\\|receiver\\|set\\|setparam\\|where\\|actual\\|abstract\\|annotation\\|companion\\|const\\|crossinline\\|data\\|enum\\|expect\\|external\\|final\\|infix\\|inline\\|inner\\|internal\\|lateinit\\|noinline\\|open\\|operator\\|out\\|override\\|private\\|public\\|reified\\|sealed\\|suspend\\|tailrec\\|vararg\\|it\\)"))
   "Kotlin token type.")
 
