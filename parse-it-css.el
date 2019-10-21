@@ -26,7 +26,7 @@
 
 (require 'parse-it-c)
 
-ssalign-contentss
+
 (defconst parse-it-css--token-type
   '(("COMMENT_BEG" . "/[*]+")
     ("COMMENT_END" . "[*]/")
