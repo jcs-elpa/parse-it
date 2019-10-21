@@ -30,7 +30,7 @@ target programming language.
 * PHP - `php`
 * Python - `python`
 * R - `r`  [TODO]
-* SQL - `sql`  [TODO]
+* SQL - `sql`
 * Swift - `swift`
 * TypeScript - `typescript`
 * XML - `xml`
