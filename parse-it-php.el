@@ -38,7 +38,7 @@
     ("ARROW" . "[=][>]")
     ("VARIABLE" . "[$][^ \t\n]*")
     ("CONSTANT" . "\\<\\(__CLASS__\\|__DIR__\\|__FILE__\\|__FUNCTION__\\|__LINE__\\|__METHOD__\\|__NAMESPACE__\\|__TRAIT__\\)")
-    ("KEYWORD" . "\\<\\(abstract\\|and\\|as\\|break\\|callable\\|case\\|catch\\|class\\|clone\\|const\\|continue\\|declare\\|default\\|do\\|echo\\|else\\|elseif\\|enddeclare\\|endfor\\|endforeach\\|endif\\|endswitch\\|endwhile\\|extends\\|final\\|finally\\|foreach\\|for\\|function\\|global\\|goto\\|if\\|implements\\|include\\|include_once\\|instanceof\\|insteadof\\|interface\\|namespace\\|new\\|or\\|print\\|private\\|protected\\|public\\|require\\|require_once\\|return\\|static\\|switch\\|throw\\|trait\\|try\\|use\\|var\\|while\\|xor\\|yield\\)"))
+    ("KEYWORD" . "\\<\\(abstract\\|and\\|as\\|break\\|callable\\|case\\|catch\\|class\\|clone\\|const\\|continue\\|declare\\|default\\|do\\|echo\\|else\\|elseif\\|enddeclare\\|endfor\\|endforeach\\|endif\\|endswitch\\|endwhile\\|extends\\|final\\|finally\\|foreach\\|for\\|function\\|global\\|goto\\|if\\|implements\\|include\\|include_once\\|instanceof\\|insteadof\\|interface\\|namespace\\|new\\|or\\|print\\|private\\|protected\\|public\\|require\\|require_once\\|return\\|static\\|switch\\|throw\\|trait\\|try\\|use\\|var\\|while\\|xor\\|yield from\\|yield\\)"))
   "PHP token type.")
 
 
