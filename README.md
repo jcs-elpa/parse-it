@@ -21,6 +21,7 @@ target programming language.
 * CSS - `css`
 * Go - `go`
 * HTML - `html`
+* JSON - `json`
 * Java - `java`
 * JavaScript - `js`
 * Kotlin - `kotlin`
