@@ -33,6 +33,14 @@
     ("TAG_END" . "[^-][^-]\\([>]\\)"))
   "XML token type.")
 
+(defconst parse-it-xml--into-level-symbols
+  '("TAG_BEG")
+  "All symbols that goes into one nested level.")
+
+(defconst parse-it-xml--back-level-symbols
+  '("TAG_END")
+  "All symbols that goes back up one nested level.")
+
 
 (defun parse-it-xml--make-token-type ()
   "Make up the token type."
@@ -43,9 +51,10 @@
   "Parse the PATH XML."
   (let* ((parse-it-lex--token-type (parse-it-xml--make-token-type))
          (token-list (parse-it-lex-tokenize-it path)))
+    (parse-it-util--print-token-list token-list)
     (parse-it-ast-build token-list
-                        parse-it-c--into-level-symbols
-                        parse-it-c--back-level-symbols)))
+                        parse-it-xml--into-level-symbols
+                        parse-it-xml--back-level-symbols)))
 
 
 (provide 'parse-it-xml)

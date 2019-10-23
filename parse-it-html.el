@@ -33,6 +33,14 @@
     ("TAG_END" . "[^-][^-]\\([>]\\)"))
   "HTML token type.")
 
+(defconst parse-it-html--into-level-symbols
+  '("TAG_BEG")
+  "All symbols that goes into one nested level.")
+
+(defconst parse-it-html--back-level-symbols
+  '("TAG_END")
+  "All symbols that goes back up one nested level.")
+
 
 (defun parse-it-html--make-token-type ()
   "Make up the token type."
@@ -44,8 +52,8 @@
   (let* ((parse-it-lex--token-type (parse-it-html--make-token-type))
          (token-list (parse-it-lex-tokenize-it path)))
     (parse-it-ast-build token-list
-                        parse-it-c--into-level-symbols
-                        parse-it-c--back-level-symbols)))
+                        parse-it-html--into-level-symbols
+                        parse-it-html--back-level-symbols)))
 
 
 (provide 'parse-it-html)
