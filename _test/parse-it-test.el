@@ -23,8 +23,8 @@
 ;; --------------------------------------------------------------------------
 ;; Start testing..
 
-(let* ((lan 'python)  ; [NOTE]: Change the langauge here.
-       (path "c:/cool.py")
+(let* ((lan 'xml)  ; [NOTE]: Change the langauge here.
+       (path "c:/cool.xml")
        (load-path load-path)
        (project-path (expand-file-name "../"))
        (dirs (f-directories project-path))
