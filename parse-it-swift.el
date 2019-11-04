@@ -24,7 +24,7 @@
 
 ;;; Code:
 
-(require 'parse-it-c)
+(require 'parse-it-objc)
 
 
 (defconst parse-it-swift--token-type

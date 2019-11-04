@@ -24,6 +24,8 @@
 
 ;;; Code:
 
+(require 'parse-it)
+
 
 (defconst parse-it-html--token-type
   '(("COMMENT_BEG" . "[<][!][-][-]")

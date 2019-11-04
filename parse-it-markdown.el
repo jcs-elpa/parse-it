@@ -24,6 +24,8 @@
 
 ;;; Code:
 
+(require 'parse-it)
+
 
 (defconst parse-it-markdown--token-type
   '(("COMMENT_BEG" . "[<][!][-][-]")

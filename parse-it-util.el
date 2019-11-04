@@ -24,6 +24,8 @@
 
 ;;; Code:
 
+(require 'rect)
+
 
 (defun parse-it-util--get-string-from-file (path)
   "Return PATH file content."
@@ -58,7 +60,7 @@
     (message "%s" token)))
 
 (defun parse-it-util--print-ast-tree (ast-tree &optional ind st-ind)
-  "Print out the AST-TREE."
+  "Print out the AST-TREE with indentation (IND) and started-indentation (ST-IND)."
   (unless st-ind (setq st-ind 0))
   (unless ind (setq ind 2))
   (dolist (node ast-tree)

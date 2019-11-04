@@ -24,6 +24,8 @@
 
 ;;; Code:
 
+(require 'parse-it)
+
 
 (defconst parse-it-xml--token-type
   '(("COMMENT_BEG" . "[<][!][-][-]")
@@ -51,7 +53,6 @@
   "Parse the PATH XML."
   (let* ((parse-it-lex--token-type (parse-it-xml--make-token-type))
          (token-list (parse-it-lex-tokenize-it path)))
-    (parse-it-util--print-token-list token-list)
     (parse-it-ast-build token-list
                         parse-it-xml--into-level-symbols
                         parse-it-xml--back-level-symbols)))

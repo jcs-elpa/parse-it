@@ -24,6 +24,9 @@
 
 ;;; Code:
 
+(require 'parse-it)
+
+
 (defconst parse-it-c--token-type
   '(("ASK" . "[^/*]\\([*]\\)[^/*]")
     ("AMP" . "[^&]\\([&]\\)[^&]")

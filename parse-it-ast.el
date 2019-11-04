@@ -33,7 +33,7 @@
 
 
 (defun parse-it-ast--form-node (type val pos &optional child)
-  "Form a node for AST."
+  "Form a node for AST with TYPE, VAL, POS and CHILD."
   (unless child (setq child '()))
   (list (cons :node-type type) (cons :value val) (cons :position pos) (cons :children child)))
 
