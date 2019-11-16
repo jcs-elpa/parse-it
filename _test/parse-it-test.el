@@ -23,8 +23,8 @@
 ;; --------------------------------------------------------------------------
 ;; Start testing..
 
-(let* ((lan 'xml)  ; [NOTE]: Change the langauge here.
-       (path "c:/cool.xml")
+(let* ((lan 'csharp)  ; [NOTE]: Change the langauge here.
+       (path "c:/cool.cs")
        (load-path load-path)
        (project-path (expand-file-name "../"))
        (dirs (f-directories project-path))
