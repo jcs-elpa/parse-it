@@ -90,7 +90,7 @@
 (defconst parse-it-c--c-type-bitwise-operators-token-type
   '(("BT_OP" . "[^&]\\([&]\\)[^&]")  ; &
     ("BT_OP" . "[^|]\\([|]\\)[^|]")  ; |
-    ("BT_OP" . "[^]")                ; ^
+    ("BT_OP" . "[\\^]")              ; ^
     ("BT_OP" . "[~]")                ; ~
     ("BT_OP" . "[<][<]")             ; <<
     ("BT_OP" . "[>][>]"))            ; >>
