@@ -1,4 +1,4 @@
-;;; parse-it-swift.el --- Core parser for Swift.  -*- lexical-binding: t; -*-
+;;; parse-it-swift.el --- Core parser for Swift  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

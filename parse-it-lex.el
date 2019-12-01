@@ -1,4 +1,4 @@
-;;; parse-it-lex.el --- Basic lexical analysis.  -*- lexical-binding: t; -*-
+;;; parse-it-lex.el --- Basic lexical analysis  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

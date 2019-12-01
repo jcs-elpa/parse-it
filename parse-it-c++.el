@@ -1,4 +1,4 @@
-;;; parse-it-c++.el --- Core parser for C++.  -*- lexical-binding: t; -*-
+;;; parse-it-c++.el --- Core parser for C++  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

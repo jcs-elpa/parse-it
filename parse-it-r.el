@@ -1,4 +1,4 @@
-;;; parse-it-r.el --- Core parser for R.  -*- lexical-binding: t; -*-
+;;; parse-it-r.el --- Core parser for R  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

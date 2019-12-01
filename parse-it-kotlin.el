@@ -1,4 +1,4 @@
-;;; parse-it-kotlin.el --- Core parser for Kotlin.  -*- lexical-binding: t; -*-
+;;; parse-it-kotlin.el --- Core parser for Kotlin  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

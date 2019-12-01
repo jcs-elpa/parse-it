@@ -1,4 +1,4 @@
-;;; parse-it-csharp.el --- Core parser for CSharp.  -*- lexical-binding: t; -*-
+;;; parse-it-csharp.el --- Core parser for CSharp  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

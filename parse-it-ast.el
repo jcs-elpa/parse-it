@@ -1,4 +1,4 @@
-;;; parse-it-ast.el --- Core to build Abstract Syntax Tree (AST).  -*- lexical-binding: t; -*-
+;;; parse-it-ast.el --- Core to build Abstract Syntax Tree (AST)  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

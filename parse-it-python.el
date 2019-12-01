@@ -1,4 +1,4 @@
-;;; parse-it-python.el --- Core parser for Python.  -*- lexical-binding: t; -*-
+;;; parse-it-python.el --- Core parser for Python  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

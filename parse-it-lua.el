@@ -1,4 +1,4 @@
-;;; parse-it-lua.el --- Core parser for Lua.  -*- lexical-binding: t; -*-
+;;; parse-it-lua.el --- Core parser for Lua  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

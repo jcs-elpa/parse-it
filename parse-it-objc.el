@@ -1,4 +1,4 @@
-;;; parse-it-objc.el --- Core parser for Objective-C.  -*- lexical-binding: t; -*-
+;;; parse-it-objc.el --- Core parser for Objective-C  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

@@ -1,4 +1,4 @@
-;;; parse-it-asm.el --- Core parser for Assembly Language.  -*- lexical-binding: t; -*-
+;;; parse-it-asm.el --- Core parser for Assembly Language  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

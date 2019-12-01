@@ -1,4 +1,4 @@
-;;; parse-it-json.el --- Core parser for JSON.  -*- lexical-binding: t; -*-
+;;; parse-it-json.el --- Core parser for JSON  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

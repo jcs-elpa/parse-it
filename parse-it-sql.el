@@ -1,4 +1,4 @@
-;;; parse-it-typescript.el --- Core parser for TypeScript.  -*- lexical-binding: t; -*-
+;;; parse-it-typescript.el --- Core parser for TypeScript  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

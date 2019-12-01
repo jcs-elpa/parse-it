@@ -1,4 +1,4 @@
-;;; parse-it-js.el --- Core parser for JavaScript.  -*- lexical-binding: t; -*-
+;;; parse-it-js.el --- Core parser for JavaScript  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

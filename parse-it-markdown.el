@@ -1,4 +1,4 @@
-;;; parse-it-markdown.el --- Core parser for Markdown.  -*- lexical-binding: t; -*-
+;;; parse-it-markdown.el --- Core parser for Markdown  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 

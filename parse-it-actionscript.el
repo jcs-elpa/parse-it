@@ -1,4 +1,4 @@
-;;; parse-it-actionscript.el --- Core parser for ActionScript.  -*- lexical-binding: t; -*-
+;;; parse-it-actionscript.el --- Core parser for ActionScript  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2019  Shen, Jen-Chieh <jcs090218@gmail.com>
 
