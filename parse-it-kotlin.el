@@ -38,7 +38,7 @@
     ("KEYWORD" . "\\<\\(as\\?\\|as\\|break\\|class\\|continue\\|do\\|else\\|false\\|for\\|fun\\|if\\|interface\\|\\in\\|is\\|null\\|object\\|package\\|return\\|super\\|this\\|throw\\|true\\|try\\|typealias\\|typeof\\|val\\|var\\|when\\|while\\|by\\|catch\\|constructor\\|delegate\\|dynamic\\|field\\|file\\|finally\\|get\\|import\\|init\\|param\\|property\\|receiver\\|set\\|setparam\\|where\\|actual\\|abstract\\|annotation\\|companion\\|const\\|crossinline\\|data\\|enum\\|expect\\|external\\|final\\|infix\\|inline\\|inner\\|internal\\|lateinit\\|noinline\\|open\\|operator\\|out\\|override\\|private\\|public\\|reified\\|sealed\\|suspend\\|tailrec\\|vararg\\|it\\)"))
   "Kotlin token type.")
 
-(defconst parse-it-kotlin--ref/equ-operators-token-type
+(defconst parse-it-kotlin--ref-equ-operators-token-type
   '(("RE_OP" . "[=][=][=]")
     ("RE_OP" . "[!][=][=]"))
   "Kotlin referential equality operators token type.")
@@ -70,9 +70,9 @@
           parse-it-c--bracket-token-type
           parse-it-c--macro-token-type
           parse-it-c--c-type-arithmetic-operators-token-type
-          parse-it-c--c-type-inc/dec-operators-token-type
+          parse-it-c--c-type-inc-dec-operators-token-type
           parse-it-c--c-type-assignment-operators-token-type
-          parse-it-kotlin--ref/equ-operators-token-type
+          parse-it-kotlin--ref-equ-operators-token-type
           parse-it-c--c-type-relational-operators-token-type
           parse-it-kotlin--logical-operators-token-type
           parse-it-kotlin--special-symbols-token-type

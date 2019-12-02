@@ -47,7 +47,7 @@
           parse-it-c--bracket-token-type
           parse-it-c--macro-token-type
           parse-it-c--c-type-arithmetic-operators-token-type
-          parse-it-c--c-type-inc/dec-operators-token-type
+          parse-it-c--c-type-inc-dec-operators-token-type
           parse-it-c--c-type-assignment-operators-token-type
           parse-it-c--c-type-relational-operators-token-type
           parse-it-c--c-type-logical-operators-token-type
