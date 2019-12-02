@@ -6,7 +6,7 @@
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
 ;; Description: Basic Parser in Emacs Lisp.
 ;; Keyword: parse parser lex lexer ast
-;; Version: 0.0.5
+;; Version: 0.1.7
 ;; Package-Requires: ((emacs "25.1") (cl-lib "0.6") (s "1.12.0"))
 ;; URL: https://github.com/jcs090218/parse-it
 
