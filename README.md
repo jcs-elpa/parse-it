@@ -69,7 +69,7 @@ out `parse-it-c.el` and reuse those identifier regular expression within that
 file.
 
 <p align="center">
-  <img src="./docs/arch.png" alt="arch">
+  <img alt="arch" src="./docs/arch.png" width="600" height="202">
 </p>
 
 
