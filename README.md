@@ -68,7 +68,9 @@ language `C`. If you are trying to implement c-like programming language you sho
 out `parse-it-c.el` and reuse those identifier regular expression within that
 file.
 
-![](docs/arch.png "")
+<p align="center">
+  <img src="./docs/arch.png" alt="arch">
+</p>
 
 
 ## Contribution
