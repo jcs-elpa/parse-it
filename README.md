@@ -12,23 +12,6 @@ a regular expression base parser. The goal of this project is to generate AST fo
 targeting programming language.
 
 
-## How to write one parser/AST for your favorite language?
-
-There are 4 files you need to know before you write your own parser/AST. 
-And these 4 files are listed under below.
-
-1. `parse-it.el` - Entry.
-2. `parse-it-lex.el` - Lexer functionalities.
-3. `parse-it-ast.el` - Build AST after lexing.
-4. `parse-it-uitl` - Other hepler.
-
-Other file than these files are the implementation for specific programming 
-language due to their filename. For instance, `parse-it-c.el` is for programming 
-language `C`. If you are trying to implement c-like programming language you should check 
-out `parse-it-c.el` and reuse those identifier regular expression within that
-file.
-
-
 ## Supported Langauges
 
 * ActionScript - `actionscript`
@@ -65,6 +48,23 @@ You can simply test with any script like the code under.
 ```
 
 All tokens are listed under programming language's file itself.
+
+
+## How to write one parser/AST for your favorite language?
+
+There are 4 files you need to know before you write your own parser/AST. 
+And these 4 files are listed under below.
+
+1. `parse-it.el` - Entry.
+2. `parse-it-lex.el` - Lexer functionalities.
+3. `parse-it-ast.el` - Build AST after lexing.
+4. `parse-it-uitl` - Other hepler.
+
+Other file than these files are the implementation for specific programming 
+language due to their filename. For instance, `parse-it-c.el` is for programming 
+language `C`. If you are trying to implement c-like programming language you should check 
+out `parse-it-c.el` and reuse those identifier regular expression within that
+file.
 
 
 ## Contribution
