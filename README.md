@@ -57,6 +57,10 @@ All tokens are listed under programming language's file itself.
 There are 4 files you need to know before you write your own parser/AST. 
 And these 4 files are listed under below.
 
+<p align="center">
+  <img alt="arch" src="./docs/arch.png" width="532" height="202">
+</p>
+
 1. `parse-it.el` - Entry.
 2. `parse-it-lex.el` - Lexer functionalities.
 3. `parse-it-ast.el` - Build AST after lexing.
@@ -67,10 +71,6 @@ language due to their filename. For instance, `parse-it-c.el` is for programming
 language `C`. If you are trying to implement c-like programming language you should check 
 out `parse-it-c.el` and reuse those identifier regular expression within that
 file.
-
-<p align="center">
-  <img alt="arch" src="./docs/arch.png" width="532" height="202">
-</p>
 
 
 ## Contribution
