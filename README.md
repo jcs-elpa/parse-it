@@ -24,11 +24,9 @@ And these 4 files are listed under below.
 
 Other file than these files are the implementation for specific programming 
 language due to their filename. For instance, `parse-it-c.el` is for programming 
-language `C`. 
-
-If you are trying to implement c-like programming language you should check 
+language `C`. If you are trying to implement c-like programming language you should check 
 out `parse-it-c.el` and reuse those identifier regular expression within that
-file
+file.
 
 
 ## Supported Langauges
