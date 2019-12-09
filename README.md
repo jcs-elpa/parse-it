@@ -5,6 +5,18 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
 
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [parse-it](#parse-it)
+    - [Supported Langauges](#supported-langauges)
+    - [Try it yourself!](#try-it-yourself)
+    - [How to write one parser/AST for your favorite language?](#how-to-write-one-parserast-for-your-favorite-language)
+    - [Contribution](#contribution)
+
+<!-- markdown-toc end -->
+
+
 # parse-it
 > Basic Parser in Emacs Lisp.
 
