@@ -64,7 +64,7 @@ And these 4 files are listed under below.
 1. `parse-it.el` - Entry.
 2. `parse-it-lex.el` - Lexer functionalities.
 3. `parse-it-ast.el` - Build AST after lexing.
-4. `parse-it-uitl` - Other hepler.
+4. `parse-it-uitl` - Other helpers.
 
 Other file than these files are the implementation for specific programming 
 language due to their filename. For instance, `parse-it-c.el` is for programming 
