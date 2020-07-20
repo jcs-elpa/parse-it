@@ -1,10 +1,9 @@
-[![Build Status](https://travis-ci.com/jcs090218/parse-it.svg?branch=master)](https://travis-ci.com/jcs090218/parse-it)
+[![Build Status](https://travis-ci.com/jcs-elpa/parse-it.svg?branch=master)](https://travis-ci.com/jcs-elpa/parse-it)
 [![MELPA](https://melpa.org/packages/parse-it-badge.svg)](https://melpa.org/#/parse-it)
 [![MELPA Stable](https://stable.melpa.org/packages/parse-it-badge.svg)](https://stable.melpa.org/#/parse-it)
 [![Release Tag](https://img.shields.io/github/tag/jcs-elpa/parse-it.svg?label=release)](https://github.com/jcs-elpa/parse-it/releases/latest)
 [![Emacs Ver.](https://img.shields.io/badge/Emacs-25.1+-blue.svg)](https://www.gnu.org/software/emacs/)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-
 
 # parse-it
 > Basic Parser in Emacs Lisp.
@@ -12,7 +11,6 @@
 For most of the `major-mode` that needed a parser to act correctly. This is
 a regular expression base parser. The goal of this project is to generate AST for
 targeting programming language.
-
 
 ## Supported Langauges
 
@@ -39,7 +37,6 @@ targeting programming language.
 * TypeScript - `typescript`
 * XML - `xml`
 
-
 ## Try it yourself!
 
 You can simply test with any script like the code under.
@@ -50,7 +47,6 @@ You can simply test with any script like the code under.
 ```
 
 All tokens are listed under programming language's file itself.
-
 
 ## How to write one parser/AST for your favorite language?
 
@@ -71,7 +67,6 @@ language due to their filename. For instance, `parse-it-c.el` is for programming
 language `C`. If you are trying to implement c-like programming language you should check 
 out `parse-it-c.el` and reuse those identifier regular expression within that
 file.
-
 
 ## Contribution
 
