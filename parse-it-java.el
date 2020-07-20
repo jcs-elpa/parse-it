@@ -26,7 +26,6 @@
 
 (require 'parse-it-c)
 
-
 (defconst parse-it-java--token-type
   '(("COLON" . "[:]")
     ("SEMICOLON" . "[;]")
@@ -36,7 +35,6 @@
     ("QT_D" . "[\"]")
     ("KEYWORD" . "\\<\\(abstract\\|assert\\|boolean\\|break\\|byte\\|case\\|catch\\|char\\|class\\|const\\|continue\\|default\\|do\\|double\\|else\\|enum\\|extends\\|final\\|finally\\|float\\|for\\|goto\\|if\\|implements\\|import\\|instanceof\\|int\\|interface\\|long\\|native\\|new\\|package\\|private\\|protected\\|public\\|return\\|short\\|static\\|strictfp\\|super\\|switch\\|synchronized\\|this\\|throw\\|throws\\|transient\\|try\\|void\\|volatile\\|while\\|true\\|false\\|null\\)"))
   "Java token type.")
-
 
 (defun parse-it-java--make-token-type ()
   "Make up the token type."
@@ -59,7 +57,6 @@
     (parse-it-ast-build token-list
                         parse-it-c--into-level-symbols
                         parse-it-c--back-level-symbols)))
-
 
 (provide 'parse-it-java)
 ;;; parse-it-java.el ends here

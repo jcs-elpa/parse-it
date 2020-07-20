@@ -26,7 +26,6 @@
 
 (require 'parse-it-c)
 
-
 (defconst parse-it-php--token-type
   '(("COMMENT" . "[#]")
     ("COLON" . "[:]")
@@ -40,7 +39,6 @@
     ("CONSTANT" . "\\<\\(__CLASS__\\|__DIR__\\|__FILE__\\|__FUNCTION__\\|__LINE__\\|__METHOD__\\|__NAMESPACE__\\|__TRAIT__\\)")
     ("KEYWORD" . "\\<\\(abstract\\|and\\|as\\|break\\|callable\\|case\\|catch\\|class\\|clone\\|const\\|continue\\|declare\\|default\\|do\\|echo\\|else\\|elseif\\|enddeclare\\|endfor\\|endforeach\\|endif\\|endswitch\\|endwhile\\|extends\\|final\\|finally\\|foreach\\|for\\|function\\|global\\|goto\\|if\\|implements\\|include\\|include_once\\|instanceof\\|insteadof\\|interface\\|namespace\\|new\\|or\\|print\\|private\\|protected\\|public\\|require\\|require_once\\|return\\|static\\|switch\\|throw\\|trait\\|try\\|use\\|var\\|while\\|xor\\|yield from\\|yield\\)"))
   "PHP token type.")
-
 
 (defun parse-it-php--make-token-type ()
   "Make up the token type."
@@ -62,7 +60,6 @@
     (parse-it-ast-build token-list
                         parse-it-c--into-level-symbols
                         parse-it-c--back-level-symbols)))
-
 
 (provide 'parse-it-php)
 ;;; parse-it-php.el ends here

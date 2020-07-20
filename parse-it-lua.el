@@ -26,7 +26,6 @@
 
 (require 'parse-it-c)
 
-
 (defconst parse-it-lua--token-type
   '(("COMMENT" . "[-][-]")
     ("COMMENT_BEG" . "[-][-][[][[]")
@@ -39,7 +38,6 @@
     ("QT_D" . "[\"]")
     ("KEYWORD" . "\\<\\(break\\|case\\|catch\\|continue\\|debugger\\|default\\|delete\\|do\\|else\\|finally\\|for\\|function\\|if\\|instanceof\\|in\\|new\\|return\\|switch\\|this\\|throw\\|try\\|typeof\\|var\\|void\\|while\\|with\\|null\\|true\\|false\\|NaN\\|Infinity\\|undefined\\)"))
   "Lua token type.")
-
 
 (defun parse-it-lua--make-token-type ()
   "Make up the token type."
@@ -57,7 +55,6 @@
     (parse-it-ast-build token-list
                         parse-it-c--into-level-symbols
                         parse-it-c--back-level-symbols)))
-
 
 (provide 'parse-it-lua)
 ;;; parse-it-lua.el ends here

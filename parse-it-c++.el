@@ -26,7 +26,6 @@
 
 (require 'parse-it-c)
 
-
 (defconst parse-it-c++--token-type
   '(("COLON" . "[:]")
     ("SEMICOLON" . "[;]")
@@ -36,7 +35,6 @@
     ("QT_D" . "[\"]")
     ("KEYWORD" . "\\<\\(asm\\|bool\\|catch\\|class\\|const_cast\\|delete\\|dynamic_cast\\|explicit\\|export\\|false\\|friend\\|inline\\|mutable\\|namespace\\|new\\|operator\\|private\\|protected\\|public\\|reinterpret_cast\\|static_cast\\|template\\|this\\|throw\\|true\\|try\\|typeid\\|typename\\|using\\|virtual\\|wchar_t\\|nullptr\\)"))
   "C++ token type.")
-
 
 (defun parse-it-c++--make-token-type ()
   "Make up the token type."
@@ -60,7 +58,6 @@
     (parse-it-ast-build token-list
                         parse-it-c--into-level-symbols
                         parse-it-c--back-level-symbols)))
-
 
 (provide 'parse-it-c++)
 ;;; parse-it-c++.el ends here

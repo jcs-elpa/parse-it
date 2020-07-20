@@ -26,7 +26,6 @@
 
 (require 'parse-it)
 
-
 (defconst parse-it-xml--token-type
   '(("COMMENT_BEG" . "[<][!][-][-]")
     ("COMMENT_END" . "[-][-][>]")
@@ -43,7 +42,6 @@
   '("TAG_END")
   "All symbols that goes back up one nested level.")
 
-
 (defun parse-it-xml--make-token-type ()
   "Make up the token type."
   (append parse-it-xml--token-type
@@ -56,7 +54,6 @@
     (parse-it-ast-build token-list
                         parse-it-xml--into-level-symbols
                         parse-it-xml--back-level-symbols)))
-
 
 (provide 'parse-it-xml)
 ;;; parse-it-xml.el ends here

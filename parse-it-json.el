@@ -26,7 +26,6 @@
 
 (require 'parse-it-c)
 
-
 (defconst parse-it-json--token-type
   '(("COLON" . "[:]")
     ("SEMICOLON" . "[;]")
@@ -35,7 +34,6 @@
     ("QT_S" . "[']")
     ("QT_D" . "[\"]"))
   "JSON token type.")
-
 
 (defun parse-it-json--make-token-type ()
   "Make up the token type."
@@ -50,7 +48,6 @@
     (parse-it-ast-build token-list
                         parse-it-c--into-level-symbols
                         parse-it-c--back-level-symbols)))
-
 
 (provide 'parse-it-json)
 ;;; parse-it-json.el ends here

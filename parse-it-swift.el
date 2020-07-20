@@ -26,7 +26,6 @@
 
 (require 'parse-it-objc)
 
-
 (defconst parse-it-swift--token-type
   '(("COLON" . "[:]")
     ("SEMICOLON" . "[;]")
@@ -37,7 +36,6 @@
     ("KEYWORD" . "\\B\\(@interface\\|@implementation\\|@protocol\\|@end\\|@private\\|@protected\\|@public\\|@try\\|@throw\\|@catch\\|@finally\\|@class\\|@selector\\|@protocol\\|@encode\\|@synchronized\\|#import\\)\\b")
     ("KEYWORD" . "\\<\\(alloc\\|retain\\|release\\|autorelease\\)"))
   "Swift token type.")
-
 
 (defun parse-it-swift--make-token-type ()
   "Make up the token type."
@@ -61,7 +59,6 @@
     (parse-it-ast-build token-list
                         parse-it-c--into-level-symbols
                         parse-it-c--back-level-symbols)))
-
 
 (provide 'parse-it-swift)
 ;;; parse-it-swift.el ends here

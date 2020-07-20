@@ -26,7 +26,6 @@
 
 (require 'parse-it-c)
 
-
 (defconst parse-it-go--token-type
   '(("COLON" . "[:]")
     ("SEMICOLON" . "[;]")
@@ -36,7 +35,6 @@
     ("QT_D" . "[\"]")
     ("KEYWORD" . "\\<\\(break\\|default\\|func\\|interface\\|select\\|case\\|defer\\|goto\\|map\\|struct\\|chan\\|else\\|go\\|package\\|switch\\|const\\|fallthrough\\|if\\|range\\|type\\|continue\\|for\\|import\\|return\\|var\\)"))
   "Go token type.")
-
 
 (defun parse-it-go--make-token-type ()
   "Make up the token type."
@@ -59,7 +57,6 @@
     (parse-it-ast-build token-list
                         parse-it-c--into-level-symbols
                         parse-it-c--back-level-symbols)))
-
 
 (provide 'parse-it-go)
 ;;; parse-it-go.el ends here

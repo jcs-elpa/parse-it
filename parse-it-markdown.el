@@ -26,7 +26,6 @@
 
 (require 'parse-it)
 
-
 (defconst parse-it-markdown--token-type
   '(("COMMENT_BEG" . "[<][!][-][-]")
     ("COMMENT_END" . "[-][-][>]")
@@ -43,7 +42,6 @@
     ("QT_D" . "[\"]"))
   "Markdown token type.")
 
-
 (defun parse-it-markdown--make-token-type ()
   "Make up the token type."
   (append parse-it-markdown--token-type
@@ -56,7 +54,6 @@
     (parse-it-ast-build token-list
                         parse-it-c--into-level-symbols
                         parse-it-c--back-level-symbols)))
-
 
 (provide 'parse-it-markdown)
 ;;; parse-it-markdown.el ends here

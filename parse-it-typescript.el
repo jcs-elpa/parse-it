@@ -26,7 +26,6 @@
 
 (require 'parse-it-c)
 
-
 (defconst parse-it-typescript--token-type
   '(("COLON" . "[:]")
     ("SEMICOLON" . "[;]")
@@ -37,7 +36,6 @@
     ("ARROW" . "[=][>]")
     ("KEYWORD" . "\\<\\(abstract\\|any\\|async\\|as\\|await\\|boolean\\|bigint\\|break\\|case\\|catch\\|class\\|constructor\\|const\\|continue\\|declare\\|default\\|delete\\|do\\|else\\|enum\\|export\\|extends\\|extern\\|false\\|finaly\\|for\\|function\\|from\\|get\\|goto\\|if\\|implements\\|import\\|in\\|instanceof\\|interface\\|keyof\\|let\\|module\\|namespace\\|never\\|new\\|null\\|number\\|object\\|of\\|private\\|protected\\|public\\|readonly\\|return\\|set\\|static\\|string\\|super\\|switch\\|this\\|throw\\|true\\|try\\|typeof\\|type\\|var\\|void\\|while\\)"))
   "TypeScript token type.")
-
 
 (defun parse-it-typescript--make-token-type ()
   "Make up the token type."
@@ -59,7 +57,6 @@
     (parse-it-ast-build token-list
                         parse-it-c--into-level-symbols
                         parse-it-c--back-level-symbols)))
-
 
 (provide 'parse-it-typescript)
 ;;; parse-it-typescript.el ends here

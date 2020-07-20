@@ -26,7 +26,6 @@
 
 (require 'parse-it-c)
 
-
 (defconst parse-it-js--token-type
   '(("COLON" . "[:]")
     ("SEMICOLON" . "[;]")
@@ -42,7 +41,6 @@
   '(("RE_OP" . "[=][=][=]")
     ("RE_OP" . "[!][=][=]"))
   "JavaScript relational operators token type.")
-
 
 (defun parse-it-js--make-token-type ()
   "Make up the token type."
@@ -65,7 +63,6 @@
     (parse-it-ast-build token-list
                         parse-it-c--into-level-symbols
                         parse-it-c--back-level-symbols)))
-
 
 (provide 'parse-it-js)
 ;;; parse-it-js.el ends here

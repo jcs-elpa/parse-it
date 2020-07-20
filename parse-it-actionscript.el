@@ -26,7 +26,6 @@
 
 (require 'parse-it-c)
 
-
 (defconst parse-it-actionscript--token-type
   '(("COLON" . "[:]")
     ("SEMICOLON" . "[;]")
@@ -36,7 +35,6 @@
     ("QT_D" . "[\"]")
     ("KEYWORD" . "\\<\\(break\\|case\\|continue\\|default\\|do\\|while\\|else\\|for\\|in\\|each\\|if\\|label\\|return\\|super\\|switch\\|throw\\|try\\|catch\\|finally\\|while\\|with\\|dynamic\\|final\\|internal\\|native\\|override\\|private\\|protected\\|public\\|static\\|class\\|cont\\|extends\\|function\\|get\\|implements\\|interface\\|namespace\\|package\\|set\\|var\\|import\\|include\\|false\\|null\\|this\\|true\\)"))
   "ActionScript token type.")
-
 
 (defun parse-it-actionscript--make-token-type ()
   "Make up the token type."
@@ -58,7 +56,6 @@
     (parse-it-ast-build token-list
                         parse-it-c--into-level-symbols
                         parse-it-c--back-level-symbols)))
-
 
 (provide 'parse-it-actionscript)
 ;;; parse-it-actionscript.el ends here

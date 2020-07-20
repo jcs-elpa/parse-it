@@ -26,7 +26,6 @@
 
 (require 'parse-it-c)
 
-
 (defconst parse-it-csharp--token-type
   '(("COLON" . "[:]")
     ("SEMICOLON" . "[;]")
@@ -37,7 +36,6 @@
     ("ARROW" . "[=][>]")
     ("KEYWORD" . "\\<\\(abstract\\|as\\|base\\|bool\\|break\\|byte\\|case\\|catch\\|char\\|checked\\|class\\|const\\|continue\\|decimal\\|default\\|delegate\\|do\\|double\\|else\\|enum\\|event\\|explicit\\|extern\\|false\\|finally\\|fixed\\|float\\|foreach\\|for\\|goto\\|if\\|implicit\\|interface\\|internal\\|int\\|in\\|is\\|lock\\|long\\|namespace\\|new\\|null\\|object\\|operator\\|out\\|override\\|params\\|private\\|protected\\|public\\|readonly\\|ref\\|return\\|sbyte\\|sealed\\|short\\|sizeof\\|stackalloc\\|static\\|string\\|struct\\|switch\\|this\\|throw\\|true\\|try\\|typeof\\|uint\\|ulong\\|unchecked\\|unsafe\\|ushort\\|using\\|virtual\\|void\\|volatile\\|while\\)"))
   "CSharp token type.")
-
 
 (defun parse-it-csharp--make-token-type ()
   "Make up the token type."
@@ -60,7 +58,6 @@
     (parse-it-ast-build token-list
                         parse-it-c--into-level-symbols
                         parse-it-c--back-level-symbols)))
-
 
 (provide 'parse-it-csharp)
 ;;; parse-it-csharp.el ends here
