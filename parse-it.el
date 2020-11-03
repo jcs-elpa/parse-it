@@ -49,7 +49,9 @@
 
 ;;;###autoload
 (defun parse-it (lan &optional path)
-  "Parse the PATH with symbol language LAN support."
+  "Parse the PATH with symbol language LAN support.
+
+If optional argument is nil; then it will use current buffer instead."
   (let ((mod-name (intern (format "parse-it-%s" (symbol-name lan)))))
     (if (and (ignore-errors (require mod-name))
              (functionp mod-name))
