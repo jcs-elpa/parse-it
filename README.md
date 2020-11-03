@@ -20,6 +20,7 @@ targeting programming language.
 * C++ - `c++`
 * C# - `csharp`
 * CSS - `css`
+* Emacs Lisp - `elisp`
 * Go - `go`
 * HTML - `html`
 * JSON - `json`
