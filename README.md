@@ -26,6 +26,7 @@ targeting programming language.
 * Java - `java`
 * JavaScript - `js`
 * Kotlin - `kotlin`
+* Lisp - `lisp`
 * Lua - `lua`
 * Markdown - `markdown`
 * Objective-C - `objc`
@@ -50,7 +51,7 @@ All tokens are listed under programming language's file itself.
 
 ## How to write one parser/AST for your favorite language?
 
-There are 4 files you need to know before you write your own parser/AST. 
+There are 4 files you need to know before you write your own parser/AST.
 And these 4 files are listed under below.
 
 <p align="center">
@@ -62,9 +63,9 @@ And these 4 files are listed under below.
 3. `parse-it-ast.el` - Build AST after lexing.
 4. `parse-it-uitl` - Other helpers.
 
-Other file than these files are the implementation for specific programming 
-language due to their filename. For instance, `parse-it-c.el` is for programming 
-language `C`. If you are trying to implement c-like programming language you should check 
+Other file than these files are the implementation for specific programming
+language due to their filename. For instance, `parse-it-c.el` is for programming
+language `C`. If you are trying to implement c-like programming language you should check
 out `parse-it-c.el` and reuse those identifier regular expression within that
 file.
 
