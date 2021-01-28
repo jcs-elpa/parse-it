@@ -28,7 +28,7 @@
       package-user-dir (expand-file-name (make-temp-name "tmp-elpa")
                                          user-emacs-directory))
 
-(let* ((package-archives '(("melpa" . "http://melpa.org/packages/")
+(let* ((package-archives '(("melpa" . "https://melpa.org/packages/")
                            ("gnu" . "http://elpa.gnu.org/packages/")))
        (pkgs '(s)))
   (package-initialize)
