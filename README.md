@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/jcs-elpa/parse-it.svg?branch=master)](https://travis-ci.com/jcs-elpa/parse-it)
+![CI](https://github.com/jcs-elpa/parse-it/workflows/CI/badge.svg)
 [![MELPA](https://melpa.org/packages/parse-it-badge.svg)](https://melpa.org/#/parse-it)
 [![MELPA Stable](https://stable.melpa.org/packages/parse-it-badge.svg)](https://stable.melpa.org/#/parse-it)
 [![Release Tag](https://img.shields.io/github/tag/jcs-elpa/parse-it.svg?label=release)](https://github.com/jcs-elpa/parse-it/releases/latest)
