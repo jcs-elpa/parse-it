@@ -24,8 +24,10 @@
 
 ;;; Code:
 
+(require 'cl-lib)
 (require 'rect)
 (require 's)
+(require 'subr-x)
 
 (defun parse-it-util--get-string-from-file (path)
   "Return PATH file content."
