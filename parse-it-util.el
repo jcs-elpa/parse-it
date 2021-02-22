@@ -25,6 +25,7 @@
 ;;; Code:
 
 (require 'rect)
+(require 's)
 
 (defun parse-it-util--get-string-from-file (path)
   "Return PATH file content."
