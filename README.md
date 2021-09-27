@@ -1,10 +1,11 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![MELPA](https://melpa.org/packages/parse-it-badge.svg)](https://melpa.org/#/parse-it)
 [![MELPA Stable](https://stable.melpa.org/packages/parse-it-badge.svg)](https://stable.melpa.org/#/parse-it)
-![CI](https://github.com/jcs-elpa/parse-it/workflows/CI/badge.svg)
 
 # parse-it
 > Basic Parser in Emacs Lisp.
+
+![CI](https://github.com/jcs-elpa/parse-it/workflows/CI/badge.svg)
 
 For most of the `major-mode` that needed a parser to act correctly. This is
 a regular expression base parser. The goal of this project is to generate AST for
