@@ -3,27 +3,27 @@ SHELL := /usr/bin/env bash
 EMACS ?= emacs
 CASK ?= cask
 
-TEST-FILES := test/bootstrap.el $(shell ls test/parse-it-*.el)
-LOAD-FILE = -l $(test-file)
-LOAD-TEST-FILES := $(foreach test-file, $(TEST-FILES), $(LOAD-FILE))
+PKG-FILES := $(shell ls parse-it-*.el)
 
-build:
-	EMACS=$(EMACS) cask install
-	EMACS=$(EMACS) cask build
-	EMACS=$(EMACS) cask clean-elc
+TEST-FILES := $(shell ls test/parse-it-*.el)
 
-ci: CASK=
-ci: compile clean
+.PHONY: clean checkdoc lint unix-build unix-compile	unix-test
 
-compile:
+unix-ci: clean unix-build unix-compile
+
+unix-build:
+	$(CASK) install
+
+unix-compile:
 	@echo "Compiling..."
 	@$(CASK) $(EMACS) -Q --batch \
-		-l test/bootstrap.el \
-		-L . -L langs \
+		-L . \
 		--eval '(setq byte-compile-error-on-warn t)' \
-		-f batch-byte-compile *.el
+		-f batch-byte-compile $(PKG-FILES)
+
+unix-test:
+	@echo "Testing..."
+	$(CASK) exec ert-runner -L . $(LOAD-TEST-FILES) -t '!no-win' -t '!org'
 
 clean:
 	rm -rf .cask *.elc
-
-.PHONY: build ci compile clean
