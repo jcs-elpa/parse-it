@@ -33,8 +33,7 @@
   (parse-it-test--all-dirs final-list)  ; Load all core files.
   (message "[INFO] Done loading ::\n")
 
-  (setq parse-it-lex--ignore-newline t)
-
   (require 'parse-it)
+  (setq parse-it-lex--ignore-newline t)
   (message "Parsing %s.." lan)
   (parse-it-util--print-ast-tree (parse-it lan path)))
