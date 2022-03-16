@@ -9,3 +9,5 @@
 (load-paths
  "./"
  "./langs/")
+
+(setq byte-compile-error-on-warn t)
