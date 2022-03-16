@@ -15,7 +15,7 @@ install:
 	$(EASK) install
 
 compile:
-    $(EASK) compile
+	$(EASK) compile
 
 unix-test:
 	@echo "Testing..."
