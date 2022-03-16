@@ -10,4 +10,7 @@
  "./"
  "./langs/")
 
+(development
+ (depends-on "f"))
+
 (setq byte-compile-error-on-warn t)
