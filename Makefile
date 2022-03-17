@@ -3,8 +3,6 @@ SHELL := /usr/bin/env bash
 EMACS ?= emacs
 EASK ?= eask
 
-PKG-FILES := parse-it.el
-
 TEST-FILES := $(shell ls test/parse-it-*.el)
 
 .PHONY: clean checkdoc lint install compile unix-test
@@ -12,9 +10,11 @@ TEST-FILES := $(shell ls test/parse-it-*.el)
 ci: clean install compile
 
 install:
+	@echo "Installing..."
 	$(EASK) install
 
 compile:
+	@echo "Compiling..."
 	$(EASK) compile
 
 unix-test:
