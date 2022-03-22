@@ -2,9 +2,7 @@
 
 (package-file "parse-it.el")
 
-(files
- "parse-it-[^.]+.el$"
- "langs/parse-it-[^.]+.el$")
+(files "*.el" "langs/*.el")
 
 (load-paths
  "./"
