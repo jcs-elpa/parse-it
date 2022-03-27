@@ -1,7 +1,8 @@
 (source "melpa")
 
-(package-file "parse-it.el")
+(package "parse-it" "0.2.1" "Basic Parser in Emacs Lisp")
 
+(package-file "parse-it.el")
 (files "*.el" "langs/*.el")
 
 (load-paths "./" "./langs/")

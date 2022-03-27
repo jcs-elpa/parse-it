@@ -5,9 +5,13 @@ EASK ?= eask
 
 TEST-FILES := $(shell ls test/parse-it-*.el)
 
-.PHONY: clean checkdoc lint install compile unix-test
+.PHONY: clean checkdoc lint package install compile unix-test
 
-ci: clean install compile
+ci: clean package install compile
+
+package:
+	@echo "Packaging..."
+	$(EASK) package
 
 install:
 	@echo "Installing..."
