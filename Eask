@@ -2,6 +2,9 @@
          "0.2.1"
          "Basic Parser in Emacs Lisp")
 
+(website-url "https://github.com/jcs-elpa/parse-it")
+(keywords "parse" "parser" "lex" "lexer" "ast")
+
 (package-file "parse-it.el")
 (files "*.el" "langs/*.el")
 
