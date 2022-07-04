@@ -7,7 +7,7 @@
 ;; URL: https://github.com/jcs-elpa/parse-it
 ;; Version: 0.2.1
 ;; Package-Requires: ((emacs "25.1") (s "1.12.0"))
-;; Keywords: parse parser lex lexer ast
+;; Keywords: convenience parse parser lex lexer ast
 
 ;; This file is NOT part of GNU Emacs.
 
