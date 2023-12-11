@@ -11,7 +11,7 @@ For most of the `major-mode` that needed a parser to act correctly. This is
 a regular expression base parser. The goal of this project is to generate AST for
 targeting programming language.
 
-## Supported Langauges
+## 🔨 Supported Langauges
 
 * ActionScript - `actionscript`
 * Assembly Language - `asm`
@@ -38,7 +38,7 @@ targeting programming language.
 * TypeScript - `typescript`
 * XML - `xml`
 
-## Try it yourself!
+## 🔰 Try it yourself!
 
 You can simply test with any script like the code under.
 
@@ -49,7 +49,7 @@ You can simply test with any script like the code under.
 
 All tokens are listed under programming language's file itself.
 
-## How to write one parser/AST for your favorite language?
+## 💫 How to write one parser/AST for your favorite language?
 
 There are 4 files you need to know before you write your own parser/AST.
 And these 4 files are listed under below.
