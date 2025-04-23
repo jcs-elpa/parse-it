@@ -1,3 +1,5 @@
+;; -*- mode: eask; lexical-binding: t -*-
+
 (package "parse-it"
          "0.2.1"
          "Basic Parser in Emacs Lisp")
